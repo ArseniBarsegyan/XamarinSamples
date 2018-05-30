@@ -25,7 +25,7 @@
                   SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
+                    <ViewCell Height="150">
                         <StackLayout BackgroundColor="White">
                             <renderers:ContentViewWithBorder HorizontalOptions="FillAndExpand" 
                                                              VerticalOptions="FillAndExpand" 
@@ -33,9 +33,9 @@
                                                              BorderColor="DarkGray" 
                                                              BorderWidth="1">
                                 <StackLayout Orientation="Horizontal">
-                                    <Image Source="{Binding Photos[0].ResizedPath}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100" />
+                                    <Image Source="{Binding Photos[0].ResizedPath}" Aspect="AspectFill" HeightRequest="100" />
                                     <StackLayout Spacing="10">
-                                        <Label Text="{Binding Date, StringFormat='{0:dd.MM.yy}'}" />
+                                        <Label Text="{Binding Date, StringFormat='{0:dd.MM.yy, HH:mm}'}" />
                                         <elements:LineSpacingLabel HorizontalTextAlignment="Start" Lines="5" LineSpacing="1.1" Text="{Binding Description}" />
                                     </StackLayout>
                                 </StackLayout>

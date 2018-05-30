@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MyDiary.Extensions;
@@ -45,6 +46,15 @@ namespace MyDiary.ViewModels
 
         private void CreateOrUpdateNoteCommandExecute(NoteViewModel viewModel)
         {
+            // If there is no photos in list, add photomodel with empty image
+            if (!Photos.Any())
+            {
+                Photos.Add(new PhotoViewModel
+                {
+                    ResizedPath = "empty_note.jpg",
+                    Thumbnail = "empty_note.jpg"
+                });
+            }
             App.NoteRepository.Save(viewModel.ToNoteModel());
         }
 

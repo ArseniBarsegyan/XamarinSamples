@@ -75,9 +75,9 @@
     <Compile Include="MainApplication.cs" />
     <Compile Include="Renderers\ClickableImageRenderer.cs" />
     <Compile Include="Renderers\ContentViewWithBorderRenderer.cs" />
+    <Compile Include="Renderers\CustomEditorRenderer.cs" />
     <Compile Include="Renderers\ImageGalleryRenderer.cs" />
     <Compile Include="Renderers\LineSpacingLabelRenderer.cs" />
-    <Compile Include="Renderers\ScrollableEditorRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

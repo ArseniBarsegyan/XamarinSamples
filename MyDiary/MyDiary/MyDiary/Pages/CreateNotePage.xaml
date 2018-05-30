@@ -4,7 +4,8 @@
              xmlns:elements="clr-namespace:MyDiary.Elements;assembly=MyDiary"
              xmlns:viewModels="clr-namespace:MyDiary.ViewModels;assembly=MyDiary"
              x:Class="MyDiary.Pages.CreateNotePage"
-             Title="Create note">
+             Title="Create note"
+             BackgroundColor="White">
     <ContentPage.ToolbarItems>
         <ToolbarItem Order="Secondary" Text="Save" Clicked="Save_OnClicked" />
         <ToolbarItem Order="Secondary" Text="Photo" Command="{Binding TakePhotoCommand}" />
@@ -35,10 +36,12 @@
                     </DataTemplate>
                 </elements:ImageGallery.ItemTemplate>
             </elements:ImageGallery>
-            <!-- Editor for text for current note -->
-            <elements:ScrollableEditor x:Name="DescriptionEditor" 
-                                       HorizontalOptions="FillAndExpand" 
-                                       VerticalOptions="FillAndExpand" />
+            
+            <ScrollView VerticalOptions="FillAndExpand">
+                <Editor x:Name="DescriptionEditor"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand" />
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

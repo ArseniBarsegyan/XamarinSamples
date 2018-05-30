@@ -26,11 +26,7 @@ namespace MyDiary.Pages
 
             if (!ViewModel.Photos.Any())
             {
-                ViewModel.Photos.Add(new PhotoViewModel
-                {
-                    ResizedPath = "http://becomingminimalist.com/wp-content/uploads/2008/07/post-it-note.jpg",
-                    Thumbnail = "http://becomingminimalist.com/wp-content/uploads/2008/07/post-it-note.jpg",
-                });
+                ViewModel.Photos.Add(new PhotoViewModel());
             }
 
             ViewModel.CreateOrUpdateNoteCommand.Execute(new NoteViewModel
