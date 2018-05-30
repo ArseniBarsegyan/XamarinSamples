@@ -21,5 +21,11 @@ namespace MyDiary.Droid.Renderers
                 Control.Background = null;
             }
         }
+
+        protected override void OnAttachedToWindow()
+        {
+            base.OnAttachedToWindow();
+            Enabled = true;
+        }
     }
 }
