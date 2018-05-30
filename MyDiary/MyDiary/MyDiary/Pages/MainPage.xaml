@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:MyDiary.ViewModels;assembly=MyDiary"
+             xmlns:renderers="clr-namespace:MyDiary.Renderers;assembly=MyDiary"
+             xmlns:elements="clr-namespace:MyDiary.Elements;assembly=MyDiary"
+             x:Class="MyDiary.Pages.MainPage"
+             Title="All notes">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary" Icon="add.png" Clicked="Create_OnClicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.BindingContext>
+        <viewModels:MainPageViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <!-- List with notes -->
+        <ListView x:Name="NotesList" 
+                  ItemsSource="{Binding Notes}"
+                  IsPullToRefreshEnabled="True"
+                  HasUnevenRows="True"
+                  RefreshCommand="{Binding RefreshListCommand}"
+                  IsRefreshing="{Binding IsRefreshing}"
+                  ItemSelected="NotesList_OnItemSelected"
+                  SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="White">
+                            <renderers:ContentViewWithBorder HorizontalOptions="FillAndExpand" 
+                                                             VerticalOptions="FillAndExpand" 
+                                                             Padding="10" 
+                                                             BorderColor="DarkGray" 
+                                                             BorderWidth="1">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="{Binding Photos[0].ResizedPath}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100" />
+                                    <StackLayout Spacing="10">
+                                        <Label Text="{Binding Date, StringFormat='{0:dd.MM.yy}'}" />
+                                        <elements:LineSpacingLabel HorizontalTextAlignment="Start" Lines="5" LineSpacing="1.1" Text="{Binding Description}" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </renderers:ContentViewWithBorder>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
