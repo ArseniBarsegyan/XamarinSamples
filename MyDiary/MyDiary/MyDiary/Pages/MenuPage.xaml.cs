@@ -16,7 +16,7 @@ namespace MyDiary.Pages
             var pages = MenuHelper.GetMenu().Where(x => x.IsDisplayed).ToList();
             MenuList.ItemsSource = pages;
 
-            MessagingCenter.Subscribe<NotesPage, MenuPageIndex>(this, "DetailPageChanged", (sender, pageIndex) =>
+            MessagingCenter.Subscribe<NotesPage, MenuPageIndex>(this, ConstantHelper.DetailPageChanged, (sender, pageIndex) =>
             {
                 switch (pageIndex)
                 {
@@ -66,7 +66,7 @@ namespace MyDiary.Pages
 
         public void Dispose()
         {
-            MessagingCenter.Unsubscribe<NotesPage, MenuPageIndex>(this, "DetailPageChanged");
+            MessagingCenter.Unsubscribe<NotesPage, MenuPageIndex>(this, ConstantHelper.DetailPageChanged);
         }
     }
 }

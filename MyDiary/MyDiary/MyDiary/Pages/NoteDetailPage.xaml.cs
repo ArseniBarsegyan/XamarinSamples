@@ -1,4 +1,5 @@
 ﻿using System;
+using MyDiary.Helpers;
 using MyDiary.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -21,7 +22,7 @@ namespace MyDiary.Pages
             if (BindingContext is NoteViewModel noteViewModel)
             {
                 bool result = await DisplayAlert
-                    ("Warning!", "Are you sure you want to delete this note?", "Ok", "Cancel");
+                    (ConstantHelper.Warning, ConstantHelper.NoteDeleteMessage, ConstantHelper.Ok, ConstantHelper.Cancel);
                 if (result)
                 {
                     ViewModel.DeleteNoteCommand.Execute(noteViewModel);

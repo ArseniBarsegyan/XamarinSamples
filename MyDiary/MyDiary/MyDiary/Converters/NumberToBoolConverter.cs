@@ -4,6 +4,9 @@ using Xamarin.Forms;
 
 namespace MyDiary.Converters
 {
+    /// <summary>
+    /// Convert positive integer value to bool. Return true if value > 0.
+    /// </summary>
     public class NumberToBoolConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

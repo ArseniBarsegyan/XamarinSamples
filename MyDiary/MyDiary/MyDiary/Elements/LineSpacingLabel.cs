@@ -2,6 +2,9 @@
 
 namespace MyDiary.Elements
 {
+    /// <summary>
+    /// Label with line spacing property (adjust spacing between lines).
+    /// </summary>
     public class LineSpacingLabel : Label
     {
         public static readonly BindableProperty LinesProperty =

@@ -1,5 +1,4 @@
 ﻿using Android.Content;
-using Android.Text;
 using MyDiary.Droid.Renderers;
 using MyDiary.Elements;
 using Xamarin.Forms;

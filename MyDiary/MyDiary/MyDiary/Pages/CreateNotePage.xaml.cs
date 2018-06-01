@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MyDiary.Helpers;
 using MyDiary.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -20,7 +21,7 @@ namespace MyDiary.Pages
         {
             if (string.IsNullOrWhiteSpace(DescriptionEditor.Text))
             {
-                await DisplayAlert("Warning", "Note text is empty. Creation cancelled", "Ok");
+                await DisplayAlert(ConstantHelper.Warning, ConstantHelper.NoteTextIsEmptyMessage, ConstantHelper.Ok);
                 return;
             }
 
