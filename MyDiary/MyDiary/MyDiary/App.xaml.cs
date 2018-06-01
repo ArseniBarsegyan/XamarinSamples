@@ -1,5 +1,6 @@
 ﻿using MyDiary.Interfaces;
 using MyDiary.Models;
+using MyDiary.Pages;
 using Xamarin.Forms;
 
 namespace MyDiary
@@ -11,7 +12,7 @@ namespace MyDiary
         public App ()
 		{
 			InitializeComponent();
-		    MainPage = new NavigationPage(new Pages.MainPage());
+		    MainPage = new NavigationPage(new MenuPage());
         }
 
 	    /// <summary>

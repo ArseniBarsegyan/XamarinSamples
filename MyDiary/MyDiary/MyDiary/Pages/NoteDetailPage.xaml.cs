@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using MyDiary.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -29,25 +28,6 @@ namespace MyDiary.Pages
                     await Navigation.PopAsync();
                 }
             }
-        }
-
-        // When user focus Editor show "Confirm" at navigation bar
-        private void DescriptionEditor_OnFocused(object sender, FocusEventArgs e)
-        {
-            var confirmToolbarItem = new ToolbarItem
-            {
-                Icon = "confirm.png"
-            };
-            confirmToolbarItem.Clicked += Confirm_OnClicked;
-            ToolbarItems.Add(confirmToolbarItem);
-        }
-
-        // When user unfocus Editor hide "Confirm" at navigation bar
-        private void DescriptionEditor_OnUnfocused(object sender, FocusEventArgs e)
-        {
-            var confirmToolbarItem = ToolbarItems.ElementAt(1);
-            confirmToolbarItem.Clicked -= Confirm_OnClicked;
-            ToolbarItems.Remove(confirmToolbarItem);
         }
 
         private void Confirm_OnClicked(object sender, EventArgs e)

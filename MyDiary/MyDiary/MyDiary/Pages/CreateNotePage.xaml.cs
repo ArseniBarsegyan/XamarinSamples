@@ -38,11 +38,6 @@ namespace MyDiary.Pages
             await Navigation.PopAsync();
         }
 
-        private async void Cancel_OnClicked(object sender, EventArgs e)
-        {
-            await Navigation.PopAsync();
-        }
-
         private void ViewModel_OnPhotoAdded(object sender, EventArgs e)
         {
             ImageGallery.Render();

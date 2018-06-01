@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:pages="clr-namespace:MyDiary.Pages;assembly=MyDiary"
+                  x:Class="MyDiary.Pages.MenuPage"
+                  MasterBehavior="Popover">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu">
+            <ListView x:Name="MenuList"
+                      RowHeight="60"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      SeparatorVisibility="None"
+                      BackgroundColor="White"
+                      ItemSelected="MenuList_OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal" Padding="10,0">
+                                    <Image Source="{Binding IconSource}" 
+                                           HeightRequest="50" 
+                                           HorizontalOptions="Center" />
+                                    <Label Text="{Binding Title}" 
+                                           VerticalOptions="Center" 
+                                           HorizontalOptions="Center"
+                                           FontSize="Medium" />
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <pages:NotesPage />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

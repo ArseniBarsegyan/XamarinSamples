@@ -4,9 +4,9 @@ using Xamarin.Forms;
 
 namespace MyDiary.Pages
 {
-    public partial class MainPage : ContentPage
+    public partial class NotesPage : ContentPage
     {
-        public MainPage()
+        public NotesPage()
         {
             InitializeComponent();
         }

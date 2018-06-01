@@ -4,7 +4,7 @@
              xmlns:viewModels="clr-namespace:MyDiary.ViewModels;assembly=MyDiary"
              xmlns:renderers="clr-namespace:MyDiary.Renderers;assembly=MyDiary"
              xmlns:elements="clr-namespace:MyDiary.Elements;assembly=MyDiary"
-             x:Class="MyDiary.Pages.MainPage"
+             x:Class="MyDiary.Pages.NotesPage"
              Title="All notes">
     <ContentPage.ToolbarItems>
         <ToolbarItem Order="Primary" Icon="add.png" Clicked="Create_OnClicked"/>

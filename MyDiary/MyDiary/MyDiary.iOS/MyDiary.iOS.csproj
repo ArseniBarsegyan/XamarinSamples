@@ -184,4 +184,22 @@
   <ItemGroup>
     <BundleResource Include="Resources\edit%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\camera%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\camera%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\camera%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\note%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\note%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\note%403x.png" />
+  </ItemGroup>
 </Project>

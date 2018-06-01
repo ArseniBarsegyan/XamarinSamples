@@ -7,9 +7,8 @@
              Title="Create note"
              BackgroundColor="White">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Order="Secondary" Text="Save" Clicked="Save_OnClicked" />
-        <ToolbarItem Order="Secondary" Text="Photo" Command="{Binding TakePhotoCommand}" />
-        <ToolbarItem Order="Secondary" Text="Cancel" Clicked="Cancel_OnClicked" />
+        <ToolbarItem Icon="camera.png" Command="{Binding TakePhotoCommand}" />
+        <ToolbarItem Icon="confirm.png" Clicked="Save_OnClicked" />
     </ContentPage.ToolbarItems>
     
     <ContentPage.BindingContext>
@@ -19,7 +18,11 @@
     <ContentPage.Content>
         <StackLayout>
             <!-- Image gallery with all photos of current note -->
-            <elements:ImageGallery x:Name="ImageGallery" Orientation="Horizontal" ItemsSource="{Binding Photos}" HeightRequest="100">
+            <elements:ImageGallery x:Name="ImageGallery" 
+                                   Orientation="Horizontal" 
+                                   ItemsSource="{Binding Photos}"
+                                   HeightRequest="100"
+                                   IsVisible="{Binding Photos.Count, Converter={StaticResource NumberToBoolConverter}}">
                 <elements:ImageGallery.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
