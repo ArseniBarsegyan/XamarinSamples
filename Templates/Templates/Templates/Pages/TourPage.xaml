@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Templates.ViewModels;assembly=Templates"
+             xmlns:carousel="clr-namespace:Templates.Controls.Carousel;assembly=Templates"
+             x:Class="Templates.Pages.TourPage"
+             BackgroundColor="White">
+    <ContentPage.BindingContext>
+        <viewModels:TourPageViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        
+        <!-- Tour view using here as element. Just add it into your page, define item template and handle 'StartButtonClicked' event -->
+        <carousel:TourView ItemSource="{Binding CarouselContents}" StartButtonClicked="TourView_OnStartButtonClicked">
+            <carousel:TourView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10*"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="0" BackgroundColor="Silver"/>
+                        <StackLayout Grid.Row="1" BackgroundColor="White"/>
+                        <AbsoluteLayout Grid.RowSpan="2" Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" BackgroundColor="Transparent" Padding="0,30,0,10">
+                            <Image AbsoluteLayout.LayoutBounds="0.5,0.1,0.8,1" 
+                                   AbsoluteLayout.LayoutFlags="All" 
+                                   Source="{Binding ImageSource}" 
+                                   Aspect="AspectFit" 
+                                   HeightRequest="550"/>
+                        </AbsoluteLayout>
+                    </Grid>
+                </DataTemplate>
+            </carousel:TourView.ItemTemplate>
+        </carousel:TourView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Reflection;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
@@ -20,6 +20,10 @@ namespace Templates.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
+            var cv = typeof(Xamarin.Forms.CarouselView);
+            var assembly = Assembly.Load(cv.FullName);
+
             LoadApplication(new App());
         }
     }
