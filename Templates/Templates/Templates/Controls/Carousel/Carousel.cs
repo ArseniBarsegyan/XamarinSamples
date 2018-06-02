@@ -22,7 +22,7 @@ namespace Templates.Controls.Carousel
             };
 
             Pages = pages;
-            _carousel.ItemSource = pages;
+            _carousel.ItemsSource = pages;
             _carousel.PositionSelected += OnPageChanged;
 
             Children.Add(_carousel);
