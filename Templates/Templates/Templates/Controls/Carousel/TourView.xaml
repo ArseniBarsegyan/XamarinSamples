@@ -3,30 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Templates.Controls.Carousel.TourView">
     <!-- You can customize this template as you want -->
-    <StackLayout >
+    <StackLayout BackgroundColor="White">
         <!-- This stack layout contains carousel -->
         <StackLayout x:Name="CarouselViewContainer" />
 
-        <StackLayout VerticalOptions="FillAndExpand">
-            <StackLayout x:Name="LabelsStack" VerticalOptions="CenterAndExpand">
-                <Label x:Name="TitleLabel" 
-                       TextColor="{StaticResource TextPrimaryColor}" 
-                       FontSize="Large" 
-                       FontAttributes="Bold"
-                       VerticalOptions="Center"
-                       HorizontalTextAlignment="Center" />
-                <Label x:Name="DescriptionLabel"
-                       FontSize="Medium"
-                       TextColor="{StaticResource TextPrimaryColor}" 
-                       VerticalOptions="Center"
-                       HorizontalTextAlignment="Center" />
-            </StackLayout>
+        <StackLayout x:Name="LabelsStack" VerticalOptions="Center">
+            <Label x:Name="TitleLabel" 
+                   TextColor="{StaticResource TextPrimaryColor}" 
+                   FontSize="Large" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Start"
+                   HorizontalTextAlignment="Center" />
+            <Label x:Name="DescriptionLabel"
+                   FontSize="Medium"
+                   TextColor="{StaticResource TextPrimaryColor}" 
+                   VerticalOptions="Start"
+                   HorizontalTextAlignment="Center" />
+
+            <!-- Button unvisible until current slide isn't last -->
             <Button x:Name="StartButton" 
                     IsVisible="False" 
                     Text="Let's start" 
                     Style="{StaticResource SubmitButtonStyle}"
                     HeightRequest="50" 
-                    VerticalOptions="End" 
+                    VerticalOptions="EndAndExpand" 
                     Clicked="StartButton_OnClicked" 
                     Margin="15"/>
         </StackLayout>

@@ -18,7 +18,7 @@ namespace Templates.Controls.Carousel
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.StartAndExpand,
-                HeightRequest = 470
+                HeightRequest = 350
             };
 
             Pages = pages;
@@ -36,7 +36,7 @@ namespace Templates.Controls.Carousel
         private void CreateDotLayout()
         {
             // Create the button layout with as many buttons as there are pages.
-            _dotLayout = new DotButtonsLayout(Pages.Count, 10);
+            _dotLayout = new DotButtonsLayout(Pages.Count, 15);
 
             foreach (var dot in _dotLayout.Dots)
             {

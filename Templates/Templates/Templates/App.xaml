@@ -2,7 +2,19 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Templates.App">
-	<Application.Resources>
-    
-	</Application.Resources>
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="TextPrimaryColor">#2699FB</Color>
+            <Color x:Key="ButtonColor">#3A3070</Color>
+
+            <Style x:Key="SubmitButtonStyle" TargetType="Button">
+                <Setter Property="VerticalOptions" Value="EndAndExpand" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="{StaticResource ButtonColor}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="HeightRequest" Value="70" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

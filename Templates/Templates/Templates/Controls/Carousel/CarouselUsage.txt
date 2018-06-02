@@ -13,3 +13,5 @@ var assembly = Assembly.Load(cv.FullName);
 
 var cv = typeof(Xamarin.Forms.CarouselView);
 var assembly = Assembly.Load(cv.FullName);
+
+Add TourView to any page as element, set data template and itemssource properties and handle StartButtonClicked event.

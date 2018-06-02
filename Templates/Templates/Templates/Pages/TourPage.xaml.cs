@@ -13,11 +13,12 @@ namespace Templates.Pages
         public TourPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
-        private async void TourView_OnStartButtonClicked(object sender, EventArgs e)
+        private void TourView_OnStartButtonClicked(object sender, EventArgs e)
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new MainPage());
+            Application.Current.MainPage = new NavigationPage(new MainPage());
         }
     }
 }

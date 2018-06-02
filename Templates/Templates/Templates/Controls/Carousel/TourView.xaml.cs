@@ -24,8 +24,8 @@ namespace Templates.Controls.Carousel
             InitializeComponent();
         }
 
-        public static readonly BindableProperty ItemSourceProperty =
-            BindableProperty.Create(nameof(ItemSource),
+        public static readonly BindableProperty ItemsSourceProperty =
+            BindableProperty.Create(nameof(ItemsSource),
                 typeof(IEnumerable<CarouselContent>),
                 typeof(TourView),
                 null);
@@ -44,10 +44,10 @@ namespace Templates.Controls.Carousel
         /// <summary>
         /// List of <seealso cref="CarouselContent"/> as item source for carousel.
         /// </summary>
-        public IEnumerable<CarouselContent> ItemSource
+        public IEnumerable<CarouselContent> ItemsSource
         {
-            get => (IEnumerable<CarouselContent>)GetValue(ItemSourceProperty);
-            set => SetValue(ItemSourceProperty, value);
+            get => (IEnumerable<CarouselContent>)GetValue(ItemsSourceProperty);
+            set => SetValue(ItemsSourceProperty, value);
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Templates.Controls.Carousel
             get => (DataTemplate)GetValue(ItemTemplateProperty);
             set
             {
-                SetValue(ItemSourceProperty, value);
+                SetValue(ItemsSourceProperty, value);
                 _carousel.ItemTemplate = value;
             }
         }
@@ -73,15 +73,15 @@ namespace Templates.Controls.Carousel
                 _isInitialized = true;
             }
 
-            if (propertyName == nameof(ItemSource))
+            if (propertyName == nameof(ItemsSource))
             {
-                _carousel.Pages = new ObservableCollection<CarouselContent>(ItemSource);
+                _carousel.Pages = new ObservableCollection<CarouselContent>(ItemsSource);
 
                 _carousel.PageChanged += ViewOnPageChanged;
                 CarouselViewContainer.Children.Add(_carousel);
 
-                TitleLabel.Text = ItemSource.ElementAt(0).Title;
-                DescriptionLabel.Text = ItemSource.ElementAt(0).Description;
+                TitleLabel.Text = ItemsSource.ElementAt(0).Title;
+                DescriptionLabel.Text = ItemsSource.ElementAt(0).Description;
             }
             else if (propertyName == nameof(ItemTemplate))
             {
