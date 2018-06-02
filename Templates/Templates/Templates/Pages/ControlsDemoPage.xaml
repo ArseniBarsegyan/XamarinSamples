@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Templates.Controls;assembly=Templates"
+             x:Class="Templates.Pages.ControlsDemoPage"
+             Padding="10">
+    <!-- Custom controls demo page -->
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:EditorWithBorder HeightRequest="50" BorderColor="DodgerBlue" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

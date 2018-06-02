@@ -12,7 +12,7 @@ namespace Templates
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new TourPage());
+            MainPage = new NavigationPage(new ControlsDemoPage());
         }
 
         protected override void OnStart()
