@@ -91,6 +91,8 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\ContentViewWithBorderRenderer.cs" />
+    <Compile Include="Renderers\CustomPickerWithIconRenderer.cs" />
     <Compile Include="Renderers\EditorWithBorderRenderer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
@@ -189,5 +191,14 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\filledDot%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\arrow_forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\arrow_forward%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\arrow_forward%403x.png" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 ﻿using System;
 using Android.Content;
+using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.Util;
 using Templates.Controls;
@@ -15,6 +16,8 @@ namespace Templates.Droid.Renderers
     /// </summary>
     public class EditorWithBorderRenderer : EditorRenderer
     {
+        private ShapeDrawable _borderShape;
+
         public EditorWithBorderRenderer(Context context) : base(context)
         {
         }
@@ -27,12 +30,32 @@ namespace Templates.Droid.Renderers
             {
                 var view = Element as EditorWithBorder;
 
+                _borderShape = new ShapeDrawable(new Android.Graphics.Drawables.Shapes.RoundRectShape(new[]
+                {
+                    (float)0,
+                    (float)0,
+                    (float)0,
+                    (float)0,
+                    (float)0,
+                    (float)0,
+                    (float)0,
+                    (float)0
+                }, null, null));
+
+                var paint = new Paint(PaintFlags.AntiAlias)
+                {
+                    Color = view.BorderColor.ToAndroid(),
+                    StrokeWidth = 2.5f,
+                    StrokeMiter = 10f
+                };
+
+                _borderShape.Paint.Set(paint);
+                _borderShape.Paint.SetStyle(Paint.Style.Stroke);
+                Background = _borderShape;
+
                 var gradientBackground = new GradientDrawable();
                 gradientBackground.SetShape(ShapeType.Rectangle);
                 gradientBackground.SetColor(view.BackgroundColor.ToAndroid());
-
-                // Thickness of the stroke line
-                gradientBackground.SetStroke(1, view.BorderColor.ToAndroid());
 
                 Control.SetBackground(gradientBackground);
 
