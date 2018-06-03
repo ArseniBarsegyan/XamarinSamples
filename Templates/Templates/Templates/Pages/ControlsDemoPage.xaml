@@ -3,26 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Templates.Controls;assembly=Templates"
              xmlns:viewModels="clr-namespace:Templates.ViewModels;assembly=Templates"
+             xmlns:behaviors="clr-namespace:Templates.Behaviors;assembly=Templates"
              x:Class="Templates.Pages.ControlsDemoPage"
-             Padding="10">
+             Padding="10"
+             Title="Controls">
     <ContentPage.BindingContext>
         <viewModels:ControlsDemoViewModel x:Name="ViewModel" />
     </ContentPage.BindingContext>
     
     <!-- Custom controls demo page -->
     <ContentPage.Content>
+        <!-- GRADIENT COLOR STACK -->
         <StackLayout>
-            <controls:EditorWithBorder TextColor="{StaticResource TextPrimaryColor}" 
-                                       HeightRequest="100" 
-                                       BorderColor="DodgerBlue" />
-            
-            <controls:CustomPickerWithIcon HeightRequest="50" 
-                                           TextColor="{StaticResource TextPrimaryColor}"
-                                           BorderColor="DodgerBlue"
-                                           PlaceholderColor="DodgerBlue"
-                                           ItemsSource="{Binding PickerItems}"
-                                           SelectedItem="{Binding PickerItems[0]}" />
-            
+            <!-- CONTENT VIEWS -->
             <controls:ContentViewWithBorder Padding="10" 
                                             HeightRequest="100" 
                                             BorderColor="DodgerBlue" 
@@ -30,10 +23,34 @@
                 <Label Text="Content view with border" />
             </controls:ContentViewWithBorder>
 
+            <!-- EDITORS -->
+            <controls:EditorWithBorder TextColor="{StaticResource TextPrimaryColor}" 
+                                       HeightRequest="100" 
+                                       BorderColor="DodgerBlue">
+            </controls:EditorWithBorder>
+            
+            <controls:EditorWithPlaceholder Placeholder="Editor with placeholder"
+                                            HeightRequest="50"
+                                            PlaceholderColor="{StaticResource TextPrimaryColor}">
+                <controls:EditorWithPlaceholder.Behaviors>
+                    <behaviors:EditorWithPlaceholderBehavior />
+                </controls:EditorWithPlaceholder.Behaviors>
+            </controls:EditorWithPlaceholder>
+
+            <!-- PICKERS -->
+            <controls:CustomPickerWithIcon HeightRequest="50" 
+                                           TextColor="{StaticResource TextPrimaryColor}"
+                                           BorderColor="DodgerBlue"
+                                           PlaceholderColor="DodgerBlue"
+                                           ItemsSource="{Binding PickerItems}"
+                                           SelectedItem="{Binding PickerItems[0]}" />
+
+            <!-- ENTRIES -->
             <controls:EntryWithBorder Placeholder="Entry with border" 
                                       TextColor="{StaticResource TextPrimaryColor}"
                                       PlaceholderColor="{StaticResource TextPrimaryColor}" />
 
+            <!-- LABELS -->
             <controls:ExtendedLabel TextColor="{StaticResource TextPrimaryColor}"
                                     IsUnderlined="True"
                                     Lines="3"

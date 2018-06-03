@@ -18,7 +18,7 @@ namespace Templates.Pages
 
         private void TourView_OnStartButtonClicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new NavigationPage(new MainPage());
+            Application.Current.MainPage = new TabPage();
         }
     }
 }

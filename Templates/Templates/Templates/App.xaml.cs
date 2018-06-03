@@ -1,4 +1,3 @@
-using System;
 using Templates.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,8 +10,7 @@ namespace Templates
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new ControlsDemoPage());
+            MainPage = new TabPage();
         }
 
         protected override void OnStart()
