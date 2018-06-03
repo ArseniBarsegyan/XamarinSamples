@@ -30,7 +30,18 @@
                 <Label Text="Content view with border" />
             </controls:ContentViewWithBorder>
 
-            <controls:EntryWithBorder Placeholder="Entry with border" />
+            <controls:EntryWithBorder Placeholder="Entry with border" 
+                                      TextColor="{StaticResource TextPrimaryColor}"
+                                      PlaceholderColor="{StaticResource TextPrimaryColor}" />
+
+            <controls:ExtendedLabel TextColor="{StaticResource TextPrimaryColor}"
+                                    IsUnderlined="True"
+                                    Lines="3"
+                                    LineSpacing="1.5"
+                                    LineBreakMode="TailTruncation">
+                This is test text for extended label. You can see that its underlined, spacing between lines more than in standard label, and it also has 3 lines 
+                of text. 4-th line won't be shown.
+            </controls:ExtendedLabel>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

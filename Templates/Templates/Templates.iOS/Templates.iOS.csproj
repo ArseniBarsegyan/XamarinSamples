@@ -95,6 +95,7 @@
     <Compile Include="Renderers\CustomPickerWithIconRenderer.cs" />
     <Compile Include="Renderers\EditorWithBorderRenderer.cs" />
     <Compile Include="Renderers\EntryWithBorderRenderer.cs" />
+    <Compile Include="Renderers\ExtendedLabelRenderer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />

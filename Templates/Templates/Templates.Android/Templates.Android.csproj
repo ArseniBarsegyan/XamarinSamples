@@ -61,6 +61,7 @@
     <Compile Include="Renderers\CustomPickerWithIconRenderer.cs" />
     <Compile Include="Renderers\EditorWithBorderRenderer.cs" />
     <Compile Include="Renderers\EntryWithBorderRenderer.cs" />
+    <Compile Include="Renderers\ExtendedLabelRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
