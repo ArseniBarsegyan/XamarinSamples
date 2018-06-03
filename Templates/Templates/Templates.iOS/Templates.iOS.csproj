@@ -97,6 +97,7 @@
     <Compile Include="Renderers\EntryWithBorderRenderer.cs" />
     <Compile Include="Renderers\ExtendedLabelRenderer.cs" />
     <Compile Include="Renderers\GradientColorStackRenderer.cs" />
+    <Compile Include="Services\AlertServiceIos.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -203,5 +204,42 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\arrow_forward%403x.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\OkIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\OkIcon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\OkIcon%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\QuestionIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\QuestionIcon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\QuestionIcon%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\UploadDocumentIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\UploadDocumentIcon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\UploadDocumentIcon%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\InfoIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\InfoIcon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\InfoIcon%403x.png" />
   </ItemGroup>
 </Project>

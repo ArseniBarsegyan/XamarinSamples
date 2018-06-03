@@ -4,4 +4,5 @@
              xmlns:pages="clr-namespace:Templates.Pages;assembly=Templates"
              x:Class="Templates.Pages.TabPage">
     <pages:ControlsDemoPage />
+    <pages:AlertsDemoPage />
 </TabbedPage>

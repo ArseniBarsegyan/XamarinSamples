@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Plugin.CurrentActivity;
 
 namespace Templates.Droid
 {
@@ -23,6 +24,7 @@ namespace Templates.Droid
 
             var cv = typeof(Xamarin.Forms.CarouselView);
             var assembly = Assembly.Load(cv.FullName);
+            CrossCurrentActivity.Current.Init(this, bundle);
 
             LoadApplication(new App());
         }

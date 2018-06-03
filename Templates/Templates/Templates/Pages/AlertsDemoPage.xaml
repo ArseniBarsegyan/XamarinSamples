@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Templates.Controls;assembly=Templates"
+             x:Class="Templates.Pages.AlertsDemoPage"
+             Title="Alerts">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="AlertButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="BorderColor" Value="Azure" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="TextColor" Value="Azure" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <controls:GradientColorStack Padding="10">
+            <!-- Test alerts -->
+            <Button x:Name="AlertButton" 
+                    Style="{StaticResource AlertButtonStyle}"
+                    Text="Alert" 
+                    Clicked="AlertButton_OnClicked" />
+
+            <Button x:Name="ResolutionAlertButton" 
+                    Style="{StaticResource AlertButtonStyle}"
+                    Text="Resolution alert" 
+                    Clicked="ResolutionAlertButton_OnClicked" />
+
+            <Button x:Name="OkAlertButton" 
+                    Style="{StaticResource AlertButtonStyle}"
+                    Text="Ok alert" 
+                    Clicked="OkAlertButton_OnClicked" />
+
+            <Button x:Name="UploadAlertButton" 
+                    Style="{StaticResource AlertButtonStyle}"
+                    Text="Upload alert" 
+                    Clicked="UploadAlertButton_OnClicked" />
+
+            <Button x:Name="YesNoAlertButton" 
+                    Style="{StaticResource AlertButtonStyle}"
+                    Text="Yes/No alert" 
+                    Clicked="YesNoAlertButton_OnClicked" />
+
+            <Button x:Name="WarningAlertButton" 
+                    Style="{StaticResource AlertButtonStyle}"
+                    Text="Warning alert" 
+                    Clicked="WarningAlertButton_OnClicked" />
+
+        </controls:GradientColorStack>
+    </ContentPage.Content>
+</ContentPage>
