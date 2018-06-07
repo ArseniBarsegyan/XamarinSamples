@@ -11,6 +11,11 @@ namespace MyDiary.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreateNotePage : ContentPage
     {
+        /// <summary>
+        /// Indicates if user tapped on "Save" button.
+        /// </summary>
+        private bool _saveClicked;
+
         public CreateNotePage()
         {
             InitializeComponent();
@@ -30,12 +35,16 @@ namespace MyDiary.Pages
                 ViewModel.Photos.Add(new PhotoViewModel());
             }
 
-            ViewModel.CreateOrUpdateNoteCommand.Execute(new NoteViewModel
+            if (!_saveClicked)
             {
-                Date = DateTime.Now,
-                Description = DescriptionEditor.Text,
-                Photos = new List<PhotoViewModel>(ViewModel.Photos)
-            });
+                ViewModel.CreateOrUpdateNoteCommand.Execute(new NoteViewModel
+                {
+                    Date = DateTime.Now,
+                    Description = DescriptionEditor.Text,
+                    Photos = new List<PhotoViewModel>(ViewModel.Photos)
+                });
+            }
+            _saveClicked = true;
             await Navigation.PopAsync();
         }
 

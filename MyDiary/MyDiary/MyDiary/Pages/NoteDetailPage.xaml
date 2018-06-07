@@ -10,14 +10,14 @@
         <ToolbarItem Icon="confirm.png" Clicked="Confirm_OnClicked" />
     </ContentPage.ToolbarItems>
     
-    <ContentPage.BindingContext>
-        <viewModels:CreateNoteViewModel x:Name="ViewModel" />
-    </ContentPage.BindingContext>
-    
     <ContentPage.Content>
         <StackLayout Padding="10">
             <!-- Image gallery with all photos of current note -->
-            <elements:ImageGallery x:Name="ImageGallery" Orientation="Horizontal" ItemsSource="{Binding Photos}" HeightRequest="100">
+            <elements:ImageGallery x:Name="ImageGallery" 
+                                   Orientation="Horizontal" 
+                                   ItemsSource="{Binding Photos}"
+                                   HeightRequest="100"
+                                   IsVisible="{Binding Photos[0].Thumbnail, Converter={StaticResource StringToBoolConverter}}">
                 <elements:ImageGallery.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

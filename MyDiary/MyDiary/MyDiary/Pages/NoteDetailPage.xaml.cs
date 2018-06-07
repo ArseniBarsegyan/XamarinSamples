@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using MyDiary.Helpers;
 using MyDiary.ViewModels;
 using Xamarin.Forms;
@@ -9,35 +10,31 @@ namespace MyDiary.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NoteDetailPage : ContentPage
     {
-        public NoteDetailPage(NoteViewModel viewModel)
+        private readonly NoteViewModel _noteViewModel;
+
+        public NoteDetailPage(NoteViewModel noteViewModel)
         {
             InitializeComponent();
-            BindingContext = viewModel;
-            Title = $"{viewModel.Date:d}";
-            DescriptionEditor.Text = viewModel.Description;
+            _noteViewModel = noteViewModel;
+            Title = $"{noteViewModel.Date:d}";
+            DescriptionEditor.Text = noteViewModel.Description;
         }
 
         private async void Delete_OnClicked(object sender, EventArgs e)
         {
-            if (BindingContext is NoteViewModel noteViewModel)
+            bool result = await DisplayAlert
+                (ConstantHelper.Warning, ConstantHelper.NoteDeleteMessage, ConstantHelper.Ok, ConstantHelper.Cancel);
+            if (result)
             {
-                bool result = await DisplayAlert
-                    (ConstantHelper.Warning, ConstantHelper.NoteDeleteMessage, ConstantHelper.Ok, ConstantHelper.Cancel);
-                if (result)
-                {
-                    ViewModel.DeleteNoteCommand.Execute(noteViewModel);
-                    await Navigation.PopAsync();
-                }
+                _noteViewModel.DeleteNoteCommand.Execute(_noteViewModel);
+                await Navigation.PopAsync();
             }
         }
 
         private void Confirm_OnClicked(object sender, EventArgs e)
         {
-            if (BindingContext is NoteViewModel noteViewModel)
-            {
-                noteViewModel.Description = DescriptionEditor.Text;
-                ViewModel.CreateOrUpdateNoteCommand.Execute(noteViewModel);
-            }
+            _noteViewModel.Description = DescriptionEditor.Text;
+            _noteViewModel.CreateOrUpdateNoteCommand.Execute(_noteViewModel);
         }
     }
 }
