@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using MyDiary.Models;
 using MyDiary.ViewModels;
@@ -34,7 +35,7 @@ namespace MyDiary.Extensions
             return model;
         }
 
-        public static IEnumerable<PhotoViewModel> ToPhotoViewModels(this IEnumerable<PhotoModel> models)
+        public static ObservableCollection<PhotoViewModel> ToPhotoViewModels(this IEnumerable<PhotoModel> models)
         {
             return models.Select(model => new PhotoViewModel
                 {
@@ -43,7 +44,7 @@ namespace MyDiary.Extensions
                     ResizedPath = model.ResizedPath,
                     Thumbnail = model.Thumbnail,
                     NoteId = model.NoteId
-                });
+                }).ToObservableCollection();
         }
 
         public static IEnumerable<PhotoModel> ToPhotoModels(this IEnumerable<PhotoViewModel> viewModels)
@@ -66,7 +67,7 @@ namespace MyDiary.Extensions
                 Date = note.Date,
                 Description = note.Description,
                 FullDescription = note.Date.ToString("dd.MM.yy") + " "+ note.Description,
-                Photos = note.Photos.ToPhotoViewModels().ToList()
+                Photos = note.Photos.ToPhotoViewModels()
             };
             return viewModel;
         }
@@ -91,7 +92,7 @@ namespace MyDiary.Extensions
                     Date = model.Date,
                     Description = model.Description,
                     FullDescription = model.Date.ToString("dd.MM.yy") + " " + model.Description,
-                    Photos = model.Photos.ToPhotoViewModels().ToList()
+                    Photos = model.Photos.ToPhotoViewModels()
                 })
                 .ToList();
         }

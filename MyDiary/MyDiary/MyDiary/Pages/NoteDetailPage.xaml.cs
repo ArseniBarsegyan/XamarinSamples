@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using MyDiary.Helpers;
 using MyDiary.ViewModels;
 using Xamarin.Forms;
@@ -15,6 +14,7 @@ namespace MyDiary.Pages
         public NoteDetailPage(NoteViewModel noteViewModel)
         {
             InitializeComponent();
+            BindingContext = noteViewModel;
             _noteViewModel = noteViewModel;
             Title = $"{noteViewModel.Date:d}";
             DescriptionEditor.Text = noteViewModel.Description;
@@ -34,7 +34,7 @@ namespace MyDiary.Pages
         private void Confirm_OnClicked(object sender, EventArgs e)
         {
             _noteViewModel.Description = DescriptionEditor.Text;
-            _noteViewModel.CreateOrUpdateNoteCommand.Execute(_noteViewModel);
+            _noteViewModel.UpdateNoteCommand.Execute(_noteViewModel);
         }
     }
 }

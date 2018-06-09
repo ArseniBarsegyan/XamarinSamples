@@ -11,7 +11,8 @@ namespace MyDiary.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return value == null;
+            var val = (string) value;
+            return !string.IsNullOrWhiteSpace(val);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

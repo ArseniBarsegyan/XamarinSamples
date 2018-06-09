@@ -6,9 +6,9 @@ namespace MyDiary.Extensions
 {
     public static class ObservableExtension
     {
-        public static ObservableCollection<Note> ToObservableCollection(this IEnumerable<Note> source)
+        public static ObservableCollection<T> ToObservableCollection<T>(this IEnumerable<T> source)
         {
-            return new ObservableCollection<Note>(source);
+            return new ObservableCollection<T>(source);
         }
     }
 }

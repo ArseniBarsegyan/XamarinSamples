@@ -37,11 +37,11 @@ namespace MyDiary.Pages
 
             if (!_saveClicked)
             {
-                ViewModel.CreateOrUpdateNoteCommand.Execute(new NoteViewModel
+                ViewModel.CreateNoteCommand.Execute(new NoteViewModel
                 {
                     Date = DateTime.Now,
                     Description = DescriptionEditor.Text,
-                    Photos = new List<PhotoViewModel>(ViewModel.Photos)
+                    Photos = ViewModel.Photos
                 });
             }
             _saveClicked = true;

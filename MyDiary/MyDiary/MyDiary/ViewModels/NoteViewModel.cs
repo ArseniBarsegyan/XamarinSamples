@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using MyDiary.Extensions;
@@ -11,7 +12,7 @@ namespace MyDiary.ViewModels
     {
         public NoteViewModel()
         {
-            CreateOrUpdateNoteCommand = new Command<NoteViewModel>(CreateOrUpdateNoteCommandExecute);
+            UpdateNoteCommand = new Command<NoteViewModel>(UpdateNoteCommandExecute);
             DeleteNoteCommand = new Command<NoteViewModel>(note => DeleteNoteCommandExecute(note));
         }
 
@@ -20,22 +21,13 @@ namespace MyDiary.ViewModels
         public DateTime Date { get; set; }
         public string FullDescription { get; set; }
 
-        public ICommand CreateOrUpdateNoteCommand { get; set; }
+        public ICommand UpdateNoteCommand { get; set; }
         public ICommand DeleteNoteCommand { get; set; }
 
-        public List<PhotoViewModel> Photos { get; set; }
+        public ObservableCollection<PhotoViewModel> Photos { get; set; }
 
-        private void CreateOrUpdateNoteCommandExecute(NoteViewModel viewModel)
+        private void UpdateNoteCommandExecute(NoteViewModel viewModel)
         {
-            // If there is no photos in list, add photomodel with empty image
-            if (!Photos.Any())
-            {
-                Photos.Add(new PhotoViewModel
-                {
-                    ResizedPath = "empty_note.jpg",
-                    Thumbnail = "empty_note.jpg"
-                });
-            }
             App.NoteRepository.Save(viewModel.ToNoteModel());
         }
 
