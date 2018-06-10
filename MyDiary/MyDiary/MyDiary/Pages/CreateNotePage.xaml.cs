@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using MyDiary.Helpers;
 using MyDiary.ViewModels;
@@ -11,6 +10,11 @@ namespace MyDiary.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreateNotePage : ContentPage
     {
+        /// <summary>
+        /// Indicates if user tapped on "Save" button.
+        /// </summary>
+        private bool _saveClicked;
+
         public CreateNotePage()
         {
             InitializeComponent();
@@ -30,12 +34,19 @@ namespace MyDiary.Pages
                 ViewModel.Photos.Add(new PhotoViewModel());
             }
 
-            ViewModel.CreateOrUpdateNoteCommand.Execute(new NoteViewModel
+            if (!_saveClicked)
             {
-                Date = DateTime.Now,
-                Description = DescriptionEditor.Text,
-                Photos = new List<PhotoViewModel>(ViewModel.Photos)
-            });
+                DateTime currentDateTime = DateTime.Now;
+                
+                ViewModel.CreateNoteCommand.Execute(new NoteViewModel
+                {
+                    CreationDate = currentDateTime,
+                    EditDate = currentDateTime,
+                    Description = DescriptionEditor.Text,
+                    Photos = ViewModel.Photos
+                });
+            }
+            _saveClicked = true;
             await Navigation.PopAsync();
         }
 

@@ -7,6 +7,7 @@
 		<!-- Application resource dictionary -->
         <ResourceDictionary>
             <converters:NumberToBoolConverter x:Key="NumberToBoolConverter" />
+            <converters:StringToBoolConverter x:Key="StringToBoolConverter" />
         </ResourceDictionary>
 	</Application.Resources>
 </Application>

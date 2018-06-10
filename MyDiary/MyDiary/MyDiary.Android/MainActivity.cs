@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using ImageCircle.Forms.Plugin.Droid;
 using Plugin.CurrentActivity;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
@@ -24,6 +25,7 @@ namespace MyDiary.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             CrossCurrentActivity.Current.Activity = this;
+            ImageCircleRenderer.Init();
             LoadApplication(new App());
         }
 

@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:elements="clr-namespace:MyDiary.Elements;assembly=MyDiary"
-             xmlns:viewModels="clr-namespace:MyDiary.ViewModels;assembly=MyDiary"
              x:Class="MyDiary.Pages.NoteDetailPage"
              BackgroundColor="White">
     <ContentPage.ToolbarItems>
@@ -10,14 +9,14 @@
         <ToolbarItem Icon="confirm.png" Clicked="Confirm_OnClicked" />
     </ContentPage.ToolbarItems>
     
-    <ContentPage.BindingContext>
-        <viewModels:CreateNoteViewModel x:Name="ViewModel" />
-    </ContentPage.BindingContext>
-    
     <ContentPage.Content>
         <StackLayout Padding="10">
-            <!-- Image gallery with all photos of current note -->
-            <elements:ImageGallery x:Name="ImageGallery" Orientation="Horizontal" ItemsSource="{Binding Photos}" HeightRequest="100">
+            <!-- Image gallery with all photos of current note. Visible if note contains not empty photo -->
+            <elements:ImageGallery x:Name="ImageGallery" 
+                                   Orientation="Horizontal" 
+                                   ItemsSource="{Binding Photos}"
+                                   HeightRequest="100"
+                                   IsVisible="{Binding Photos[0].ResizedPath, Converter={StaticResource StringToBoolConverter}}">
                 <elements:ImageGallery.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

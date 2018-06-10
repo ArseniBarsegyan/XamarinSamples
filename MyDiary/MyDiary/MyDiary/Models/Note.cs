@@ -11,7 +11,8 @@ namespace MyDiary.Models
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Description { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime CreationDate { get; set; }
+        public DateTime EditDate { get; set; }
 
         [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<PhotoModel> Photos { get; set; }

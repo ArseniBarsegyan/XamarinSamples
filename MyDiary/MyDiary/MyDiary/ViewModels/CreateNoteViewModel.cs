@@ -19,7 +19,7 @@ namespace MyDiary.ViewModels
             Photos = new ObservableCollection<PhotoViewModel>();
 
             TakePhotoCommand = new Command(async () => await TakePhotoCommandExecute());
-            CreateOrUpdateNoteCommand = new Command<NoteViewModel>(CreateOrUpdateNoteCommandExecute);
+            CreateNoteCommand = new Command<NoteViewModel>(CreateNoteCommandExecute);
             DeleteNoteCommand = new Command<NoteViewModel>(note => DeleteNoteCommandExecute(note));
         }
 
@@ -31,7 +31,7 @@ namespace MyDiary.ViewModels
         public event EventHandler PhotoAdded;
 
         public ICommand TakePhotoCommand { get; set; }
-        public ICommand CreateOrUpdateNoteCommand { get; set; }
+        public ICommand CreateNoteCommand { get; set; }
         public ICommand DeleteNoteCommand { get; set; }
 
         private async Task TakePhotoCommandExecute()
@@ -44,7 +44,7 @@ namespace MyDiary.ViewModels
             }
         }
 
-        private void CreateOrUpdateNoteCommandExecute(NoteViewModel viewModel)
+        private void CreateNoteCommandExecute(NoteViewModel viewModel)
         {
             // If there is no photos in list, add photomodel with empty image
             if (!Photos.Any())
