@@ -10,7 +10,7 @@ namespace Templates
         public App()
         {
             InitializeComponent();
-            MainPage = new TabPage();
+            MainPage = new NavigationPage(new MenuPage());
         }
 
         protected override void OnStart()

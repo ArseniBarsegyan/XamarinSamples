@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Templates.Pages.UploadDocumentDemoPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Retrieving file name and its content in code-behind -->
+            <Label x:Name="FileName" HorizontalOptions="Center" />
+            <Button x:Name="UploadButton"
+                    BackgroundColor="DodgerBlue" 
+                    TextColor="White" 
+                    HorizontalOptions="Center"
+                    Text="Upload file"
+                    Clicked="UploadButton_OnClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

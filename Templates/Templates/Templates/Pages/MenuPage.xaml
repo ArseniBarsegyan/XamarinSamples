@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:pages="clr-namespace:Templates.Pages;assembly=Templates"
+                  x:Class="Templates.Pages.MenuPage">
+    <MasterDetailPage.Master>
+        <!-- Side menu -->
+        <ContentPage Title="Menu">
+            <ListView x:Name="MenuList"
+                      RowHeight="60"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      BackgroundColor="White"
+                      ItemSelected="MenuList_OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal" Padding="10,0">
+                                    <Image Source="{Binding IconSource}" 
+                                           HeightRequest="50" 
+                                           HorizontalOptions="Center" />
+                                    <Label Text="{Binding Title}" 
+                                           VerticalOptions="Center" 
+                                           HorizontalOptions="Center" />
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    
+    <!-- Default page -->
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <pages:ControlsDemoPage />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

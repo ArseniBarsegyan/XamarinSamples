@@ -98,6 +98,10 @@
     <Compile Include="Renderers\ExtendedLabelRenderer.cs" />
     <Compile Include="Renderers\GradientColorStackRenderer.cs" />
     <Compile Include="Services\AlertServiceIos.cs" />
+    <Compile Include="Services\DocumentPickerService\PageExtensions.cs" />
+    <Compile Include="Services\DocumentPickerService\PageRenderer.cs" />
+    <Compile Include="Services\DocumentPickerService\PlatformDocumentPicker.cs" />
+    <Compile Include="Services\FileSystem.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
