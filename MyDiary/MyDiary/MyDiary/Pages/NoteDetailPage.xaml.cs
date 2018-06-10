@@ -16,7 +16,7 @@ namespace MyDiary.Pages
             InitializeComponent();
             BindingContext = noteViewModel;
             _noteViewModel = noteViewModel;
-            Title = $"{noteViewModel.Date:d}";
+            Title = $"{noteViewModel.EditDate:d}";
             DescriptionEditor.Text = noteViewModel.Description;
         }
 

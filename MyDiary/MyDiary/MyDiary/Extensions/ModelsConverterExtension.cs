@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using MyDiary.Models;
@@ -64,9 +63,10 @@ namespace MyDiary.Extensions
             var viewModel = new NoteViewModel
             {
                 Id = note.Id,
-                Date = note.Date,
+                CreationDate = note.CreationDate,
+                EditDate = note.EditDate,
                 Description = note.Description,
-                FullDescription = note.Date.ToString("dd.MM.yy") + " "+ note.Description,
+                FullDescription = note.EditDate.ToString("dd.MM.yy") + " "+ note.Description,
                 Photos = note.Photos.ToPhotoViewModels()
             };
             return viewModel;
@@ -77,7 +77,8 @@ namespace MyDiary.Extensions
             var model = new Note
             {
                 Id = note.Id,
-                Date = note.Date,
+                CreationDate = note.CreationDate,
+                EditDate = note.EditDate,
                 Description = note.Description,
                 Photos = note.Photos.ToPhotoModels().ToList()
             };
@@ -89,9 +90,10 @@ namespace MyDiary.Extensions
             return models.Select(model => new NoteViewModel
                 {
                     Id = model.Id,
-                    Date = model.Date,
+                    CreationDate = model.CreationDate,
+                    EditDate = model.EditDate,
                     Description = model.Description,
-                    FullDescription = model.Date.ToString("dd.MM.yy") + " " + model.Description,
+                    FullDescription = model.EditDate.ToString("dd.MM.yy") + " " + model.Description,
                     Photos = model.Photos.ToPhotoViewModels()
                 })
                 .ToList();
@@ -102,7 +104,8 @@ namespace MyDiary.Extensions
             return viewModels.Select(viewModel => new Note
                 {
                     Id = viewModel.Id,
-                    Date = viewModel.Date,
+                    CreationDate = viewModel.CreationDate,
+                    EditDate = viewModel.EditDate,
                     Description = viewModel.Description,
                     Photos = viewModel.Photos.ToPhotoModels().ToList()
                 })

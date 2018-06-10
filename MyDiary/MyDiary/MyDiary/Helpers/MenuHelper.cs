@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace MyDiary.Helpers
 {
     /// <summary>
-    /// Helper class. Provide list of MasterPageItem.
+    /// Helper class. Provide list of MasterPageItem for MenuPage.
     /// </summary>
     public static class MenuHelper
     {
@@ -15,8 +15,8 @@ namespace MyDiary.Helpers
             {
                 new MasterPageItem
                 {
-                    Title = "Notes",
-                    IconSource = "note.png",
+                    Title = ConstantHelper.Notes,
+                    IconSource = ConstantHelper.NotesListIcon,
                     TargetType = typeof(NotesPage),
                     IsDisplayed = true
                 },

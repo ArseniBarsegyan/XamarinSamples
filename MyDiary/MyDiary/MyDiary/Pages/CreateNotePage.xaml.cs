@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using MyDiary.Helpers;
 using MyDiary.ViewModels;
@@ -37,9 +36,12 @@ namespace MyDiary.Pages
 
             if (!_saveClicked)
             {
+                DateTime currentDateTime = DateTime.Now;
+                
                 ViewModel.CreateNoteCommand.Execute(new NoteViewModel
                 {
-                    Date = DateTime.Now,
+                    CreationDate = currentDateTime,
+                    EditDate = currentDateTime,
                     Description = DescriptionEditor.Text,
                     Photos = ViewModel.Photos
                 });

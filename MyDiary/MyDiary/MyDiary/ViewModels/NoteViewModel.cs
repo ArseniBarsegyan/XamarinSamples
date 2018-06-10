@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows.Input;
 using MyDiary.Extensions;
 using Xamarin.Forms;
@@ -18,7 +16,8 @@ namespace MyDiary.ViewModels
 
         public int Id { get; set; }
         public string Description { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime CreationDate { get; set; }
+        public DateTime EditDate { get; set; }
         public string FullDescription { get; set; }
 
         public ICommand UpdateNoteCommand { get; set; }
@@ -28,6 +27,8 @@ namespace MyDiary.ViewModels
 
         private void UpdateNoteCommandExecute(NoteViewModel viewModel)
         {
+            // Update edit date since user pressed confirm
+            viewModel.EditDate = DateTime.Now;
             App.NoteRepository.Save(viewModel.ToNoteModel());
         }
 

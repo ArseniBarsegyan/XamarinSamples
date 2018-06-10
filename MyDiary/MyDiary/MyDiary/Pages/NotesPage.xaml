@@ -10,7 +10,7 @@
         <ToolbarItem Order="Primary" Icon="add.png" Clicked="Create_OnClicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.BindingContext>
-        <viewModels:MainPageViewModel x:Name="ViewModel" />
+        <viewModels:NotesPageViewModel x:Name="ViewModel" />
     </ContentPage.BindingContext>
 
     <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
@@ -19,10 +19,19 @@
                   ItemsSource="{Binding Notes}"
                   IsPullToRefreshEnabled="True"
                   HasUnevenRows="True"
+                  CachingStrategy="RecycleElement"
                   RefreshCommand="{Binding RefreshListCommand}"
                   IsRefreshing="{Binding IsRefreshing}"
                   ItemSelected="NotesList_OnItemSelected"
                   SeparatorVisibility="None">
+            <ListView.Header>
+                <!-- Search bar at header -->
+                <StackLayout BackgroundColor="White" Padding="0,5">
+                    <SearchBar x:Name="SearchBar" 
+                               Placeholder="Search..." 
+                               TextChanged="SearchBar_OnTextChanged" />
+                </StackLayout>
+            </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell Height="150">
@@ -33,9 +42,13 @@
                                                              BorderColor="DarkGray" 
                                                              BorderWidth="1">
                                 <StackLayout Orientation="Horizontal">
-                                    <Image Source="{Binding Photos[0].ResizedPath}" Aspect="AspectFill" HeightRequest="130" WidthRequest="100" />
+                                    <Image Source="{Binding Photos[0].ResizedPath}" 
+                                           IsVisible="{Binding Photos[0].ResizedPath, Converter={StaticResource StringToBoolConverter}}" 
+                                           Aspect="AspectFill" 
+                                           HeightRequest="130"
+                                           WidthRequest="100" />
                                     <StackLayout Spacing="10">
-                                        <Label Text="{Binding Date, StringFormat='{0:dd.MM.yy, HH:mm}'}" />
+                                        <Label Text="{Binding EditDate, StringFormat='{0:dd.MM.yy, HH:mm}'}" />
                                         <elements:LineSpacingLabel HorizontalTextAlignment="Start" Lines="5" LineSpacing="1.1" Text="{Binding Description}" />
                                     </StackLayout>
                                 </StackLayout>
