@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Templates.Pages;
+using Xamarin.Forms;
 
 namespace Templates.Elements
 {
@@ -18,6 +19,13 @@ namespace Templates.Elements
                     Title = "Controls demo page",
                     IconSource = "arrow_forwand.png",
                     TargetType = typeof(ControlsDemoPage),
+                    IsDisplayed = true
+                },
+                new MasterPageItem
+                {
+                    Title = "Elements demo page",
+                    IconSource = "icon.png",
+                    TargetType = typeof(ElementsDemoPage),
                     IsDisplayed = true
                 },
                 new MasterPageItem
@@ -62,6 +70,7 @@ namespace Templates.Elements
     public enum MenuPageIndex
     {
         ControlsPage,
+        ElementsPage,
         AlertsPage,
         TourPage,
         UploadPage

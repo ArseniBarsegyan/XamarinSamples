@@ -23,6 +23,9 @@ namespace Templates.Pages
                     case MenuPageIndex.ControlsPage:
                         Navigation.PushAsync(new ControlsDemoPage());
                         break;
+                    case MenuPageIndex.ElementsPage:
+                        Navigation.PushAsync(new ElementsDemoPage());
+                        break;
                     case MenuPageIndex.TourPage:
                         Navigation.PushAsync(new TourPage());
                         break;

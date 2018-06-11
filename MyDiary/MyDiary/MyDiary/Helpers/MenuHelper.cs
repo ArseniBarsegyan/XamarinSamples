@@ -27,9 +27,21 @@ namespace MyDiary.Helpers
 
     public class MasterPageItem
     {
+        /// <summary>
+        /// Title that will be displayed in side menu.
+        /// </summary>
         public string Title { get; set; }
+        /// <summary>
+        /// Icon source that will be displayed in side menu.
+        /// </summary>
         public string IconSource { get; set; }
+        /// <summary>
+        /// Page on which user will be redirected.
+        /// </summary>
         public Type TargetType { get; set; }
+        /// <summary>
+        /// Show this item in side menu or not.
+        /// </summary>
         public bool IsDisplayed { get; set; }
     }
 
