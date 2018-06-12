@@ -224,4 +224,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\notes_list%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\video%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\video%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\video%402x.png" />
+  </ItemGroup>
 </Project>
