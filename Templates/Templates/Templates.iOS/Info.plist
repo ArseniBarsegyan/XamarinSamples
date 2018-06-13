@@ -34,5 +34,9 @@
 	<string>Templates</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Used for video calls.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Used for voice and video calls.</string>
 </dict>
 </plist>

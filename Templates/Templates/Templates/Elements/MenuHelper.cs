@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Templates.HardwareTest.Camera;
 using Templates.Pages;
-using Xamarin.Forms;
 
 namespace Templates.Elements
 {
@@ -41,6 +41,13 @@ namespace Templates.Elements
                     IconSource = "UploadDocumentIcon.png",
                     TargetType = typeof(UploadDocumentDemoPage),
                     IsDisplayed = true
+                },
+                new MasterPageItem
+                {
+                    Title = "Camera preview page",
+                    IconSource = "",
+                    TargetType = typeof(CameraPreviewPage),
+                    IsDisplayed = true
                 }
             };
             return masterPageItems;
@@ -73,6 +80,7 @@ namespace Templates.Elements
         ElementsPage,
         AlertsPage,
         TourPage,
-        UploadPage
+        UploadPage,
+        CameraTestPage
     }
 }

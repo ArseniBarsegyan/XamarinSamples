@@ -8,6 +8,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Plugin.CurrentActivity;
+using Plugin.Permissions;
 using Xamarin.Forms;
 
 namespace Templates.Droid
@@ -44,6 +45,12 @@ namespace Templates.Droid
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             ActivityResult?.Invoke(requestCode, resultCode, data);
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }

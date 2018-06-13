@@ -89,6 +89,8 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="HardwareTest\Camera\CameraPreviewRenderer.cs" />
+    <Compile Include="HardwareTest\Camera\UICameraPreview.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\ClickableImageRenderer.cs" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Templates.Elements;
+using Templates.HardwareTest.Camera;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -34,6 +35,9 @@ namespace Templates.Pages
                         break;
                     case MenuPageIndex.UploadPage:
                         Navigation.PushAsync(new UploadDocumentDemoPage());
+                        break;
+                    case MenuPageIndex.CameraTestPage:
+                        Navigation.PushAsync(new CameraPreviewPage());
                         break;
                     default:
                         break;
