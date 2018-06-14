@@ -13,6 +13,7 @@ namespace MyDiary.Models
             _db = new SQLiteConnection(dbPath);
             _db.CreateTable<Note>();
             _db.CreateTable<PhotoModel>();
+            _db.CreateTable<VideoModel>();
         }
 
         /// <summary>

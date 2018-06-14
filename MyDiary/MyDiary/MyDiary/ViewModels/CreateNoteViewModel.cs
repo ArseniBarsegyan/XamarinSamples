@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using MyDiary.Extensions;
 using MyDiary.Helpers;
+using MyDiary.Models;
 using Xamarin.Forms;
 
 namespace MyDiary.ViewModels
@@ -17,13 +18,16 @@ namespace MyDiary.ViewModels
         {
             _mediaHelper = new MediaHelper();
             Photos = new ObservableCollection<PhotoViewModel>();
+            Videos = new ObservableCollection<VideoModel>();
 
             TakePhotoCommand = new Command(async () => await TakePhotoCommandExecute());
+            TakeVideoCommand = new Command(async() => await TakeVideoCommandExecute());
             CreateNoteCommand = new Command<NoteViewModel>(CreateNoteCommandExecute);
             DeleteNoteCommand = new Command<NoteViewModel>(note => DeleteNoteCommandExecute(note));
         }
 
         public ObservableCollection<PhotoViewModel> Photos { get; set; }
+        public ObservableCollection<VideoModel> Videos { get; set; }
 
         /// <summary>
         /// Invokes when photo added to Photos.
@@ -31,6 +35,7 @@ namespace MyDiary.ViewModels
         public event EventHandler PhotoAdded;
 
         public ICommand TakePhotoCommand { get; set; }
+        public ICommand TakeVideoCommand { get; set; }
         public ICommand CreateNoteCommand { get; set; }
         public ICommand DeleteNoteCommand { get; set; }
 
@@ -41,6 +46,16 @@ namespace MyDiary.ViewModels
             {
                 Photos.Add(photoModel.ToPhotoViewModel());
                 PhotoAdded?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        //TODO: implement video player
+        private async Task TakeVideoCommandExecute()
+        {
+            var videoModel = await _mediaHelper.TakeVideoAsync();
+            if (videoModel != null)
+            {
+                Videos.Add(videoModel);
             }
         }
 

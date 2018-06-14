@@ -31,10 +31,12 @@
                   IsRefreshing="{Binding IsRefreshing}"
                   ItemSelected="NotesList_OnItemSelected"
                   SeparatorVisibility="None">
-            
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell Height="100">
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete" IsDestructive="True" Clicked="Delete_OnClicked" CommandParameter="{Binding .}" />
+                        </ViewCell.ContextActions>
                         <StackLayout BackgroundColor="White">
                             <renderers:ContentViewWithBorder HorizontalOptions="FillAndExpand" 
                                                              VerticalOptions="FillAndExpand" 

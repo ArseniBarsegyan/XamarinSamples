@@ -7,7 +7,7 @@
              Title="Create note"
              BackgroundColor="White">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="video.png" />
+        <ToolbarItem Icon="video.png" Command="{Binding TakeVideoCommand}" />
         <ToolbarItem Icon="camera.png" Command="{Binding TakePhotoCommand}" />
         <ToolbarItem Icon="confirm.png" Clicked="Save_OnClicked" />
     </ContentPage.ToolbarItems>

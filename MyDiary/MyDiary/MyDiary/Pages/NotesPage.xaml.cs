@@ -39,5 +39,13 @@ namespace MyDiary.Pages
         {
             ViewModel.SearchCommand.Execute(SearchBar.Text);
         }
+
+        private void Delete_OnClicked(object sender, EventArgs e)
+        {
+            var menuItem = sender as MenuItem;
+            var noteViewModel = menuItem?.CommandParameter as NoteViewModel;
+            noteViewModel?.DeleteNoteCommand.Execute(noteViewModel);
+            ViewModel.OnAppearing();
+        }
     }
 }

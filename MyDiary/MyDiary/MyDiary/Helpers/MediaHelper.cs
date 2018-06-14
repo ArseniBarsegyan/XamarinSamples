@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using MyDiary.Models;
 using PCLStorage;
 using Plugin.Media;
+using Plugin.Media.Abstractions;
 using PhotoModel = MyDiary.Models.PhotoModel;
 
 namespace MyDiary.Helpers
 {
     /// <summary>
-    /// Class taking photos with Plugin.Media Nuget and stores them in ObservableCollection of <see cref="T:ConvertyFire1.Models.PhotoModel"/>
-    /// Resizing these photos with <see cref="T:MyDiary.Helpers.TransformHelper"/> class.
-    /// Can also be used to delete files from filepaths or entire PhotoModels.
+    /// Provide helper methods for taking photos and videos.
     /// </summary>
     public class MediaHelper
     {
@@ -23,8 +23,7 @@ namespace MyDiary.Helpers
 
         /// <summary>
         /// Launches the camera using Plugin.Media and lets the user take one photo.
-        /// Then resizes this photo and adds avaliable exif information.
-        /// Finally the everything gets stored in a PhotoModel and added to the ObservableCollection.
+        /// Store photo data in PhotoModel.
         /// </summary>
         public async Task<PhotoModel> TakePhotoAsync()
         {
@@ -57,6 +56,40 @@ namespace MyDiary.Helpers
         }
 
         /// <summary>
+        /// Launches the camera using Plugin.Media and lets the user take video.
+        /// Returns VideoModel that contains path to the video.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<VideoModel> TakeVideoAsync()
+        {
+            bool b = await CrossMedia.Current.Initialize();
+
+            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakeVideoSupported)
+            {
+                return null;
+            }
+
+            var dt = DateTime.Now;
+            var file = await CrossMedia.Current.TakeVideoAsync(new Plugin.Media.Abstractions.StoreVideoOptions
+            {
+                Quality = VideoQuality.High,
+                Directory = "Videos",
+                Name = $"{dt:yyyyMMdd}_{dt:HHmmss}.mp4",
+                SaveToAlbum = true
+            });
+
+            if (file != null)
+            {
+                var vm = new VideoModel
+                {
+                    Path = file.Path
+                };
+                return vm;
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Deletes the PhotoModel and its pictures using PCLStorage.
         /// </summary>
         /// <param name="pm">The PhotoModel to be deleted</param>
@@ -64,7 +97,6 @@ namespace MyDiary.Helpers
         {
             await DeleteFileAsync(pm.ResizedPath);
             await DeleteFileAsync(pm.Thumbnail);
-            // await App.PhotosRepository.DeletePhotoAsync(pm);
         }
 
         /// <summary>
