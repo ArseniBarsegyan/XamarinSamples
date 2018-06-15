@@ -6,7 +6,7 @@ namespace MyDiary.Models
     /// <summary>
     /// Store filepath to videos.
     /// </summary>
-    [Table("Photos")]
+    [Table("Videos")]
     public class VideoModel
     {
         [PrimaryKey, AutoIncrement]
