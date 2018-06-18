@@ -91,6 +91,8 @@
   <ItemGroup>
     <Compile Include="HardwareTest\Camera\CameraPreviewRenderer.cs" />
     <Compile Include="HardwareTest\Camera\UICameraPreview.cs" />
+    <Compile Include="HardwareTest\Microphone\MicrophoneService.cs" />
+    <Compile Include="HardwareTest\Sound\AudioService.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\ClickableImageRenderer.cs" />
@@ -215,7 +217,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\arrow_forward%403x.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\testSound.mp3" />
+  </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\OkIcon.png" />
   </ItemGroup>

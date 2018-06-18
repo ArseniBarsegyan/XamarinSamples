@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Templates.HardwareTest.Camera;
+using Templates.HardwareTest.Microphone;
+using Templates.HardwareTest.Sound;
 using Templates.Pages;
 
 namespace Templates.Elements
@@ -48,6 +50,20 @@ namespace Templates.Elements
                     IconSource = "",
                     TargetType = typeof(CameraPreviewPage),
                     IsDisplayed = true
+                },
+                new MasterPageItem
+                {
+                    Title = "Microphone testing page",
+                    IconSource = "",
+                    TargetType = typeof(MicrophoneTestingPage),
+                    IsDisplayed = true
+                },
+                new MasterPageItem
+                {
+                    Title = "Sound testing page",
+                    IconSource = "",
+                    TargetType = typeof(SoundTestingPage),
+                    IsDisplayed = true
                 }
             };
             return masterPageItems;
@@ -81,6 +97,8 @@ namespace Templates.Elements
         AlertsPage,
         TourPage,
         UploadPage,
-        CameraTestPage
+        CameraTestPage,
+        MicrophoneTestPage,
+        SoundTestPage
     }
 }

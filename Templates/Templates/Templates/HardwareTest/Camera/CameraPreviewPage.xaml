@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:camera="clr-namespace:Templates.HardwareTest.Camera;assembly=Templates"
              x:Class="Templates.HardwareTest.Camera.CameraPreviewPage"
-             BackgroundColor="White">
+             BackgroundColor="White"
+             Title="Camera preview demo">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="iOS" Value="0,20,0,0" />

@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:elements="clr-namespace:Templates.Elements;assembly=Templates"
-             x:Class="Templates.Pages.ElementsDemoPage">
+             x:Class="Templates.Pages.ElementsDemoPage"
+             Title="Elements">
     <ContentPage.Content>
         <StackLayout>
             <elements:ClickableImage FullSizeImageSource="https://www.w3schools.com/w3css/img_lights.jpg" 

@@ -4,7 +4,8 @@
              xmlns:viewModels="clr-namespace:Templates.ViewModels;assembly=Templates"
              xmlns:carousel="clr-namespace:Templates.Controls.Carousel;assembly=Templates"
              x:Class="Templates.Pages.TourPage"
-             BackgroundColor="White">
+             BackgroundColor="White"
+             Title="Tour demo">
     <ContentPage.BindingContext>
         <viewModels:TourPageViewModel x:Name="ViewModel" />
     </ContentPage.BindingContext>

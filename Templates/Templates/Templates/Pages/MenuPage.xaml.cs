@@ -2,6 +2,8 @@
 using System.Linq;
 using Templates.Elements;
 using Templates.HardwareTest.Camera;
+using Templates.HardwareTest.Microphone;
+using Templates.HardwareTest.Sound;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -38,6 +40,12 @@ namespace Templates.Pages
                         break;
                     case MenuPageIndex.CameraTestPage:
                         Navigation.PushAsync(new CameraPreviewPage());
+                        break;
+                    case MenuPageIndex.MicrophoneTestPage:
+                        Navigation.PushAsync(new MicrophoneTestingPage());
+                        break;
+                    case MenuPageIndex.SoundTestPage:
+                        Navigation.PushAsync(new SoundTestingPage());
                         break;
                     default:
                         break;
