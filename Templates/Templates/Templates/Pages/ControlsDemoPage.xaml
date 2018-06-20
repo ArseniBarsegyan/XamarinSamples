@@ -13,52 +13,65 @@
     
     <!-- Custom controls demo page -->
     <ContentPage.Content>
-        <!-- GRADIENT COLOR STACK -->
-        <StackLayout>
-            <!-- CONTENT VIEWS -->
-            <controls:ContentViewWithBorder Padding="10" 
+        <ScrollView>
+            <StackLayout>
+                <!-- Content views -->
+                <controls:ContentViewWithBorder Padding="10" 
                                             HeightRequest="100" 
                                             BorderColor="DodgerBlue" 
                                             BorderWidth="1">
-                <Label Text="Content view with border" />
-            </controls:ContentViewWithBorder>
+                    <Label Text="Content view with border" />
+                </controls:ContentViewWithBorder>
 
-            <!-- EDITORS -->
-            <controls:EditorWithBorder TextColor="{StaticResource TextPrimaryColor}" 
+                <!-- Editors -->
+                <controls:EditorWithBorder TextColor="{StaticResource TextPrimaryColor}" 
                                        HeightRequest="100" 
                                        BorderColor="DodgerBlue">
-            </controls:EditorWithBorder>
-            
-            <controls:EditorWithPlaceholder Placeholder="Editor with placeholder"
+                </controls:EditorWithBorder>
+
+                <controls:EditorWithPlaceholder Placeholder="Editor with placeholder"
                                             HeightRequest="50"
                                             PlaceholderColor="{StaticResource TextPrimaryColor}">
-                <controls:EditorWithPlaceholder.Behaviors>
-                    <behaviors:EditorWithPlaceholderBehavior />
-                </controls:EditorWithPlaceholder.Behaviors>
-            </controls:EditorWithPlaceholder>
+                    <controls:EditorWithPlaceholder.Behaviors>
+                        <behaviors:EditorWithPlaceholderBehavior />
+                    </controls:EditorWithPlaceholder.Behaviors>
+                </controls:EditorWithPlaceholder>
 
-            <!-- PICKERS -->
-            <controls:CustomPickerWithIcon HeightRequest="50" 
+                <!-- Pickers -->
+                <controls:CustomPickerWithIcon HeightRequest="50" 
                                            TextColor="{StaticResource TextPrimaryColor}"
                                            BorderColor="DodgerBlue"
                                            PlaceholderColor="DodgerBlue"
                                            ItemsSource="{Binding PickerItems}"
                                            SelectedItem="{Binding PickerItems[0]}" />
 
-            <!-- ENTRIES -->
-            <controls:EntryWithBorder Placeholder="Entry with border" 
+                <!-- Entries with behaviors -->
+                <controls:EntryWithBorder Placeholder="Entry with border and minimum length of 3 symbols" 
                                       TextColor="{StaticResource TextPrimaryColor}"
-                                      PlaceholderColor="{StaticResource TextPrimaryColor}" />
+                                      PlaceholderColor="{StaticResource TextPrimaryColor}">
+                    <controls:EntryWithBorder.Behaviors>
+                        <behaviors:MinLengthValidatorBehavior MinLength="3" InvalidNumberTextColor="DarkRed" ValidNumberTextColor="DodgerBlue" />
+                    </controls:EntryWithBorder.Behaviors>
+                </controls:EntryWithBorder>
 
-            <!-- LABELS -->
-            <controls:ExtendedLabel TextColor="{StaticResource TextPrimaryColor}"
+                <controls:EntryWithBorder Placeholder="Entry with border and maximum length of 5 symbols" 
+                                      TextColor="{StaticResource TextPrimaryColor}"
+                                      PlaceholderColor="{StaticResource TextPrimaryColor}">
+                    <controls:EntryWithBorder.Behaviors>
+                        <behaviors:MaxLengthValidatorBehavior MaxLength="5" InvalidNumberTextColor="DarkRed" ValidNumberTextColor="DodgerBlue" />
+                    </controls:EntryWithBorder.Behaviors>
+                </controls:EntryWithBorder>
+
+                <!-- Labels -->
+                <controls:ExtendedLabel TextColor="{StaticResource TextPrimaryColor}"
                                     IsUnderlined="True"
                                     Lines="3"
                                     LineSpacing="1.5"
                                     LineBreakMode="TailTruncation">
-                This is test text for extended label. You can see that its underlined, spacing between lines more than in standard label, and it also has 3 lines 
+                    This is test text for extended label. You can see that its underlined, spacing between lines more than in standard label, and it also has 3 lines 
                 of text. 4-th line won't be shown.
-            </controls:ExtendedLabel>
-        </StackLayout>
+                </controls:ExtendedLabel>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
