@@ -85,6 +85,7 @@
     <Compile Include="Services\DocumentPickerService\Platform.cs" />
     <Compile Include="Services\DocumentPickerService\PlatformDocumentPicker.cs" />
     <Compile Include="Services\FileSystem.cs" />
+    <Compile Include="Services\LoadingService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

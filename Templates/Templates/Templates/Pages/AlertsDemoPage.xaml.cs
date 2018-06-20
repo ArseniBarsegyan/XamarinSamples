@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Templates.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -9,6 +10,7 @@ namespace Templates.Pages
     public partial class AlertsDemoPage : ContentPage
     {
         private IAlertService _alertService = DependencyService.Get<IAlertService>();
+        private ILoadingService _loadingService = DependencyService.Get<ILoadingService>();
 
         public AlertsDemoPage()
         {
@@ -43,6 +45,20 @@ namespace Templates.Pages
         private void WarningAlertButton_OnClicked(object sender, EventArgs e)
         {
             _alertService.ShowWarningAlert("Warning", "Ok");
+        }
+
+        private async void ShowLoadingButton_OnClicked(object sender, EventArgs e)
+        {
+            _loadingService.ShowLoading();
+            await Task.Delay(2000);
+            _loadingService.HideLoading();
+        }
+
+        private async void ShowLoadingWithMessageButton_OnClicked(object sender, EventArgs e)
+        {
+            _loadingService.ShowLoading("Loading with message");
+            await Task.Delay(2000);
+            _loadingService.HideLoading();
         }
     }
 }

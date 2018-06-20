@@ -47,6 +47,16 @@
                     Text="Warning alert" 
                     Clicked="WarningAlertButton_OnClicked" />
 
+            <Button x:Name="ShowLoadingButton" 
+                    Style="{StaticResource AlertButtonStyle}"
+                    Text="Show loading overlay" 
+                    Clicked="ShowLoadingButton_OnClicked" />
+
+            <Button x:Name="ShowLoadingWithMessageButton" 
+                    Style="{StaticResource AlertButtonStyle}"
+                    Text="Show loading with message overlay" 
+                    Clicked="ShowLoadingWithMessageButton_OnClicked" />
+
         </controls:GradientColorStack>
     </ContentPage.Content>
 </ContentPage>

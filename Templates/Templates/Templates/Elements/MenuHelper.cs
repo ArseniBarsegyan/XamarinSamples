@@ -39,7 +39,7 @@ namespace Templates.Elements
                 },
                 new MasterPageItem
                 {
-                    Title = "Alerts demo page",
+                    Title = "Upload document demo page",
                     IconSource = "UploadDocumentIcon.png",
                     TargetType = typeof(UploadDocumentDemoPage),
                     IsDisplayed = true
