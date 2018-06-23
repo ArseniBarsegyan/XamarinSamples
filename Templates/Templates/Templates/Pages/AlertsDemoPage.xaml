@@ -15,53 +15,63 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <controls:GradientColorStack Padding="10">
-            <!-- Test alerts -->
-            <Button x:Name="AlertButton" 
+        <ScrollView>
+            <controls:GradientColorStack Padding="10">
+                <!-- Test alerts -->
+                <Button x:Name="AlertButton" 
                     Style="{StaticResource AlertButtonStyle}"
                     Text="Alert" 
                     Clicked="AlertButton_OnClicked" />
 
-            <Button x:Name="ResolutionAlertButton" 
+                <Button x:Name="ResolutionAlertButton" 
                     Style="{StaticResource AlertButtonStyle}"
                     Text="Resolution alert" 
                     Clicked="ResolutionAlertButton_OnClicked" />
 
-            <Button x:Name="OkAlertButton" 
+                <Button x:Name="OkAlertButton" 
                     Style="{StaticResource AlertButtonStyle}"
                     Text="Ok alert" 
                     Clicked="OkAlertButton_OnClicked" />
 
-            <Button x:Name="UploadAlertButton" 
+                <Button x:Name="UploadAlertButton" 
                     Style="{StaticResource AlertButtonStyle}"
                     Text="Upload alert" 
                     Clicked="UploadAlertButton_OnClicked" />
 
-            <Button x:Name="YesNoAlertButton" 
+                <Button x:Name="YesNoAlertButton" 
                     Style="{StaticResource AlertButtonStyle}"
                     Text="Yes/No alert" 
                     Clicked="YesNoAlertButton_OnClicked" />
 
-            <Button x:Name="WarningAlertButton" 
+                <Button x:Name="WarningAlertButton" 
                     Style="{StaticResource AlertButtonStyle}"
                     Text="Warning alert" 
                     Clicked="WarningAlertButton_OnClicked" />
 
-            <Button x:Name="ShowLoadingButton" 
+                <!-- Demo of the loading service -->
+                <Button x:Name="ShowLoadingButton" 
                     Style="{StaticResource AlertButtonStyle}"
                     Text="Show loading overlay" 
                     Clicked="ShowLoadingButton_OnClicked" />
 
-            <Button x:Name="ShowLoadingWithMessageButton" 
+                <Button x:Name="ShowLoadingWithMessageButton" 
                     Style="{StaticResource AlertButtonStyle}"
                     Text="Show loading with message overlay" 
                     Clicked="ShowLoadingWithMessageButton_OnClicked" />
-                    
-            <Button x:Name="RequestPermissionButton" 
+
+                <!-- Demo of the permission service -->
+                <Button x:Name="RequestPermissionButton" 
                     Style="{StaticResource AlertButtonStyle}"
                     Text="Request permission" 
                     Clicked="RequestPermissionButton_OnClicked" />
 
-        </controls:GradientColorStack>
+                <!-- Demo of the orientation service -->
+                <Button x:Name="GetOrientationButton"
+                        Style="{StaticResource AlertButtonStyle}"
+                        Text="Get device curren orientation" 
+                        Clicked="GetOrientationButton_OnClicked" />
+
+            </controls:GradientColorStack>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

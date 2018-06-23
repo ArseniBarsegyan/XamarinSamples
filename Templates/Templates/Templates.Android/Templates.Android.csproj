@@ -83,6 +83,7 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AlertServiceDroid.cs" />
+    <Compile Include="Services\DeviceOrientation.cs" />
     <Compile Include="Services\DocumentPickerService\Platform.cs" />
     <Compile Include="Services\DocumentPickerService\PlatformDocumentPicker.cs" />
     <Compile Include="Services\FileSystem.cs" />

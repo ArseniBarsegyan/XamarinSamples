@@ -12,6 +12,7 @@ namespace Templates.Pages
         private readonly IAlertService _alertService = DependencyService.Get<IAlertService>();
         private readonly ILoadingService _loadingService = DependencyService.Get<ILoadingService>();
         private readonly IPermissionService _permissionService = DependencyService.Get<IPermissionService>();
+        private readonly IDeviceOrientation _deviceOrientationService = DependencyService.Get<IDeviceOrientation>();
 
         public AlertsDemoPage()
         {
@@ -73,6 +74,11 @@ namespace Templates.Pages
             {
                 _alertService.ShowOkAlert("Permission DENIED!", "Ok");
             }
+        }
+
+        private void GetOrientationButton_OnClicked(object sender, EventArgs e)
+        {
+            _alertService.ShowOkAlert("Curren orientation is: " + _deviceOrientationService.GetOrientation(), "Ok");
         }
     }
 }
