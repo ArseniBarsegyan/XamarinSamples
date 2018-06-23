@@ -12,6 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Elements\ImageGallery\GalleryView.xaml.cs">
+      <DependentUpon>GalleryView.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\AlertsDemoPage.xaml.cs">
       <DependentUpon>AlertsDemoPage.xaml</DependentUpon>
     </Compile>
@@ -19,6 +22,12 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Controls\Carousel\TourView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Elements\ImageGallery\GalleryView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Elements\ImageGallery\FullSizeImageGallery.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Elements\FullSizeImageView.xaml">
@@ -54,9 +63,5 @@
     <EmbeddedResource Update="Pages\UploadDocumentDemoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="NewFolder\" />
   </ItemGroup>
 </Project>

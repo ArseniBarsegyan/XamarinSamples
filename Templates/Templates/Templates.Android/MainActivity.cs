@@ -4,12 +4,9 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 using Plugin.CurrentActivity;
 using Plugin.Permissions;
-using Xamarin.Forms;
 
 namespace Templates.Droid
 {
@@ -47,6 +44,9 @@ namespace Templates.Droid
             ActivityResult?.Invoke(requestCode, resultCode, data);
         }
 
+        /// <summary>
+        /// Required for IPermissionService.
+        /// </summary>
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);

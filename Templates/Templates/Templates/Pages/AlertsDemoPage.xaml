@@ -56,6 +56,11 @@
                     Style="{StaticResource AlertButtonStyle}"
                     Text="Show loading with message overlay" 
                     Clicked="ShowLoadingWithMessageButton_OnClicked" />
+                    
+            <Button x:Name="RequestPermissionButton" 
+                    Style="{StaticResource AlertButtonStyle}"
+                    Text="Request permission" 
+                    Clicked="RequestPermissionButton_OnClicked" />
 
         </controls:GradientColorStack>
     </ContentPage.Content>

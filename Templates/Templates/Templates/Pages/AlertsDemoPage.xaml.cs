@@ -9,8 +9,9 @@ namespace Templates.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AlertsDemoPage : ContentPage
     {
-        private IAlertService _alertService = DependencyService.Get<IAlertService>();
-        private ILoadingService _loadingService = DependencyService.Get<ILoadingService>();
+        private readonly IAlertService _alertService = DependencyService.Get<IAlertService>();
+        private readonly ILoadingService _loadingService = DependencyService.Get<ILoadingService>();
+        private readonly IPermissionService _permissionService = DependencyService.Get<IPermissionService>();
 
         public AlertsDemoPage()
         {
@@ -59,6 +60,19 @@ namespace Templates.Pages
             _loadingService.ShowLoading("Loading with message");
             await Task.Delay(2000);
             _loadingService.HideLoading();
+        }
+
+        private async void RequestPermissionButton_OnClicked(object sender, EventArgs e)
+        {
+            var result = await _permissionService.AskPermission();
+            if (result)
+            {
+                _alertService.ShowOkAlert("Permission GRANTED!", "Ok");
+            }
+            else
+            {
+                _alertService.ShowOkAlert("Permission DENIED!", "Ok");
+            }
         }
     }
 }

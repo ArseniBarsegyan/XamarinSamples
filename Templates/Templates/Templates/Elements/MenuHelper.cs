@@ -18,29 +18,36 @@ namespace Templates.Elements
             {
                 new MasterPageItem
                 {
+                    Title = "Tour demo page",
+                    IconSource = "",
+                    TargetType = typeof(TourPage),
+                    IsDisplayed = true
+                },
+                new MasterPageItem
+                {
                     Title = "Controls demo page",
-                    IconSource = "arrow_forwand.png",
+                    IconSource = "",
                     TargetType = typeof(ControlsDemoPage),
                     IsDisplayed = true
                 },
                 new MasterPageItem
                 {
                     Title = "Elements demo page",
-                    IconSource = "icon.png",
+                    IconSource = "",
                     TargetType = typeof(ElementsDemoPage),
                     IsDisplayed = true
                 },
                 new MasterPageItem
                 {
                     Title = "Alerts demo page",
-                    IconSource = "InfoIcon.png",
+                    IconSource = "",
                     TargetType = typeof(AlertsDemoPage),
                     IsDisplayed = true
                 },
                 new MasterPageItem
                 {
                     Title = "Upload document demo page",
-                    IconSource = "UploadDocumentIcon.png",
+                    IconSource = "",
                     TargetType = typeof(UploadDocumentDemoPage),
                     IsDisplayed = true
                 },

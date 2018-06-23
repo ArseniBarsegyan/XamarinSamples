@@ -13,12 +13,10 @@ namespace Templates.Pages
         public TourPage()
         {
             InitializeComponent();
-            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         private void TourView_OnStartButtonClicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new TabPage();
         }
     }
 }

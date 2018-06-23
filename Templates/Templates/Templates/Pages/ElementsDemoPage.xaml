@@ -2,13 +2,51 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:elements="clr-namespace:Templates.Elements;assembly=Templates"
+             xmlns:viewModels="clr-namespace:Templates.ViewModels"
+             xmlns:elements1="clr-namespace:Templates.Elements"
              x:Class="Templates.Pages.ElementsDemoPage"
              Title="Elements">
+    <!-- Example of padding for different platforms -->
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0" />
+            <On Platform="Android" Value="0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    
+    <ContentPage.BindingContext>
+        <viewModels:ElementsDemoViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <StackLayout>
+            <!-- Clickable image. Clicking on it opens full size image -->
             <elements:ClickableImage FullSizeImageSource="https://www.w3schools.com/w3css/img_lights.jpg" 
                                      Source="https://www.w3schools.com/w3css/img_lights.jpg" 
                                      HeightRequest="100" />
+
+            <!-- Horizontal image gallery. Click on image opens full size scrollable gallery -->
+            <elements1:HorizontalImageGallery x:Name="ImageGallery" 
+                                              HeightRequest="150"
+                                              ItemsSource="{Binding TestImages}"
+                                              Orientation="Horizontal">
+                <elements:HorizontalImageGallery.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Image Source="{Binding Source}"
+                                       Aspect="AspectFill"
+                                       HeightRequest="150"  
+                                       WidthRequest="150">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="HorizontalImageGallery_OnItemTapped" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </elements:HorizontalImageGallery.ItemTemplate>
+            </elements1:HorizontalImageGallery>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

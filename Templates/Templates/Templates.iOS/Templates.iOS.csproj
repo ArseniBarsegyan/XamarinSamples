@@ -102,12 +102,14 @@
     <Compile Include="Renderers\EntryWithBorderRenderer.cs" />
     <Compile Include="Renderers\ExtendedLabelRenderer.cs" />
     <Compile Include="Renderers\GradientColorStackRenderer.cs" />
+    <Compile Include="Renderers\HorizontalImageGalleryRenderer.cs" />
     <Compile Include="Services\AlertServiceIos.cs" />
     <Compile Include="Services\DocumentPickerService\PageExtensions.cs" />
     <Compile Include="Services\DocumentPickerService\PageRenderer.cs" />
     <Compile Include="Services\DocumentPickerService\PlatformDocumentPicker.cs" />
     <Compile Include="Services\FileSystem.cs" />
     <Compile Include="Services\LoadingService.cs" />
+    <Compile Include="Services\PermissionService.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -164,6 +166,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Plugin.Permissions">
+      <Version>3.0.0.12</Version>
+    </PackageReference>
     <PackageReference Include="Rg.Plugins.Popup">
       <Version>1.0.4</Version>
     </PackageReference>

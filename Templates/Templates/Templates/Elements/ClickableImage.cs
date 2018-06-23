@@ -16,7 +16,7 @@ namespace Templates.Elements
         /// <summary>
         /// Handle click on image in custom renderer in Android or iOS projects and call this method.
         /// </summary>
-        public async void ShowFullSizeImage()
+        public virtual async void ShowFullSizeImage()
         {
             //Implement action here - push FullSizeImageView() to navigation stack, use PushPopupAsync();
             var fullSizeView = new FullSizeImageView(this);

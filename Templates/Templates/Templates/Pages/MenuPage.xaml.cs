@@ -29,11 +29,11 @@ namespace Templates.Pages
                     case MenuPageIndex.ElementsPage:
                         Navigation.PushAsync(new ElementsDemoPage());
                         break;
-                    case MenuPageIndex.TourPage:
-                        Navigation.PushAsync(new TourPage());
-                        break;
                     case MenuPageIndex.AlertsPage:
                         Navigation.PushAsync(new AlertsDemoPage());
+                        break;
+                    case MenuPageIndex.TourPage:
+                        Navigation.PushAsync(new TourPage());
                         break;
                     case MenuPageIndex.UploadPage:
                         Navigation.PushAsync(new UploadDocumentDemoPage());
