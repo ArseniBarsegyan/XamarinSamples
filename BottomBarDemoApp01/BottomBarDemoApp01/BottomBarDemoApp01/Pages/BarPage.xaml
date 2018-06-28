@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<bottomBar:BottomBarPage xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:bottomBar="clr-namespace:BottomBarDemoApp01.BottomBar;assembly=BottomBarDemoApp01"
+                         xmlns:pages="clr-namespace:BottomBarDemoApp01.Pages;assembly=BottomBarDemoApp01"
+                         x:Class="BottomBarDemoApp01.Pages.BarPage"
+                         BarTextColor="White"
+                         BarBackgroundColor="Transparent"
+                         BackgroundColor="Transparent">
+    <pages:Page1 x:Name="FirstPage"
+                 Title="Page 1"
+                 Icon="gallery.png" />
+    <pages:Page2 x:Name="SecondPage"
+                 Title="Page 2"
+                 Icon="list.png" />
+    <pages:Page3 x:Name="ThirdPage"
+                 Title="Page 3"
+                 Icon="star.png" />
+</bottomBar:BottomBarPage>
