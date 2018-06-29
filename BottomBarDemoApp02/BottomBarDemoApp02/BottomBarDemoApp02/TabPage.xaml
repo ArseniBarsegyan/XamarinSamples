@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:bottomBarDemoApp02="clr-namespace:BottomBarDemoApp02;assembly=BottomBarDemoApp02"
+             x:Class="BottomBarDemoApp02.TabPage">
+  <!--Pages can be added as references or inline-->
+    <bottomBarDemoApp02:Page1 Icon="gallery.png" />
+    <bottomBarDemoApp02:Page2 Icon="list.png" />
+    <bottomBarDemoApp02:Page3 Icon="mail.png" />
+    <bottomBarDemoApp02:Page4 Icon="star.png" />
+</TabbedPage>
