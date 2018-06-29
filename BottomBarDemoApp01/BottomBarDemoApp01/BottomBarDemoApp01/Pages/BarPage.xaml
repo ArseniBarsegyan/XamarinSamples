@@ -16,4 +16,7 @@
     <pages:Page3 x:Name="ThirdPage"
                  Title="Page 3"
                  Icon="star.png" />
+    <pages:Page4 x:Name="FourthPage"
+                 Title="Page 4"
+                 Icon="mail.png" />
 </bottomBar:BottomBarPage>

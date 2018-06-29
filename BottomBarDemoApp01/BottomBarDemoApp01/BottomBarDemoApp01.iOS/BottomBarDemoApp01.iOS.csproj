@@ -183,4 +183,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\gallery%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mail%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mail%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mail%403x.png" />
+  </ItemGroup>
 </Project>
