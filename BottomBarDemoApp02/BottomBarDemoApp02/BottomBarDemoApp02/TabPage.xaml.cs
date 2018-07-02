@@ -33,10 +33,7 @@ namespace BottomBarDemoApp02
                 }
             }
         }
-
-        /// <summary>
-        /// PageIndexes: 0 - Locum Jobs, 1 - Permanent Jobs, 2 - Bookongs, 3 - Profile
-        /// </summary>
+        
         public async void GoToTab(int tabIndex, bool isNotification = false)
         {
             IsNotification = isNotification;
