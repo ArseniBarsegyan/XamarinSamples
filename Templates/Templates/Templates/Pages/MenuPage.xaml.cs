@@ -4,6 +4,7 @@ using Templates.Elements;
 using Templates.HardwareTest.Camera;
 using Templates.HardwareTest.Microphone;
 using Templates.HardwareTest.Sound;
+using Templates.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -91,6 +92,12 @@ namespace Templates.Pages
         public void Dispose()
         {
             MessagingCenter.Unsubscribe<ControlsDemoPage, MenuPageIndex>(this, "Detail page changed");
+        }
+
+        private void CloseAppButton_OnClicked(object sender, EventArgs e)
+        {
+            var appService = DependencyService.Get<IApplicationService>();
+            appService.CloseApplication();
         }
     }
 }

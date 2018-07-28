@@ -12,6 +12,9 @@
                       VerticalOptions="FillAndExpand"
                       BackgroundColor="White"
                       ItemSelected="MenuList_OnItemSelected">
+                <ListView.Header>
+                    <Button x:Name="CloseAppButton" Text="Close application" Clicked="CloseAppButton_OnClicked" />
+                </ListView.Header>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
