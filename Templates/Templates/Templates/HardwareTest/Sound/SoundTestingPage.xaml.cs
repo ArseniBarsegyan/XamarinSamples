@@ -1,4 +1,5 @@
 ﻿using System;
+using Templates.Helpers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -24,7 +25,7 @@ namespace Templates.HardwareTest.Sound
         {
             if (PlayButton.Text == "Play")
             {
-                AudioServiceService.PlayAudioFile("testSound.mp3");
+                AudioServiceService.PlayAudioFile(ConstantsHelper.AudioFileName);
                 PlayButton.Text = "Stop";
             }
             else

@@ -1,18 +1,23 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using Templates.Helpers;
+using Templates.Services;
 using Xamarin.Forms;
 
 namespace Templates.Elements.ImageGallery
 {
     /// <inheritdoc />
     /// <summary>
-    /// <see cref="ImageGallery"/> extends absolute layout and takes collection of <see cref="Image"/> in
+    /// <see cref="ImageGallery"/> extends <see cref="StackLayout"/> and takes collection of <see cref="Image"/> in
     /// constructor as parameter. This class uses <see cref="CarouselView"/> to draw horizontal set of images
     /// that could be changed by swipe.
     /// </summary>
-    public class ImageGallery : AbsoluteLayout
+    public class ImageGallery : StackLayout
     {
+        // Carousel.Position property doesn't show correct value, so here is current element position number
+        private int _currentPosition;
         private readonly CarouselView _carousel;
+        private static readonly IAlertService AlertService = DependencyService.Get<IAlertService>();
 
         public ImageGallery(ObservableCollection<Image> images)
         {
@@ -22,8 +27,7 @@ namespace Templates.Elements.ImageGallery
             _carousel = new CarouselView
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.StartAndExpand,
-                HeightRequest = 350
+                VerticalOptions = LayoutOptions.FillAndExpand
             };
 
             Images = images;
@@ -31,8 +35,29 @@ namespace Templates.Elements.ImageGallery
             _carousel.PositionSelected += OnImageChanged;
 
             Children.Add(_carousel);
-            SetLayoutBounds(_carousel, new Rectangle(0, 0, 1, 1));
-            SetLayoutFlags(_carousel, AbsoluteLayoutFlags.All);
+            AddOptionsToAllImages();
+        }
+
+        private void AddOptionsToAllImages()
+        {
+            var deleteImage = new Image
+            {
+                Source = ConstantsHelper.DeleteImageSource,
+                HeightRequest = 20
+            };
+            var deleteGestureRecognizer = new TapGestureRecognizer();
+            // Taping on "delete" image will delete current image after user confirm it.
+            deleteGestureRecognizer.Tapped += async (sender, args) =>
+            {
+                bool result = await AlertService.ShowYesNoAlert(ConstantsHelper.AreYouSure, ConstantsHelper.Yes, ConstantsHelper.No);
+                if (result)
+                {
+                    Images.RemoveAt(_currentPosition);
+                    MessagingCenter.Send(this, ConstantsHelper.ImageDeleted, _currentPosition);
+                }
+            };
+            deleteImage.GestureRecognizers.Add(deleteGestureRecognizer);
+            Children.Add(deleteImage);
         }
 
         /// <summary>
@@ -62,13 +87,14 @@ namespace Templates.Elements.ImageGallery
         public void SetCurrentPosition(int position)
         {
             _carousel.Position = position;
+            _currentPosition = position;
         }
 
         private void OnImageChanged(object sender, SelectedPositionChangedEventArgs e)
         {
             // Get the selected page
-            var position = (int)e.SelectedPosition;
-            ImageChanged?.Invoke(this, position);
+            _currentPosition = (int)e.SelectedPosition;
+            ImageChanged?.Invoke(this, _currentPosition);
         }
     }
 }

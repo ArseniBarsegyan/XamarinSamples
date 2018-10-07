@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using Templates.Helpers;
 using Xamarin.Forms;
 
 namespace Templates.Controls.Carousel
@@ -88,7 +89,7 @@ namespace Templates.Controls.Carousel
             // Set selected button color to blue, all other buttons color to white
             for (var i = 0; i < _dotLayout.Dots.Length; i++)
             {
-                _dotLayout.Dots[i].Source = position == i ? "filledDot.png" : "emptyDot.png";
+                _dotLayout.Dots[i].Source = position == i ? ConstantsHelper.FilledDotImage : ConstantsHelper.EmptyDotImage;
             }
             PageChanged?.Invoke(this, position);
         }

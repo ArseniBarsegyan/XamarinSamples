@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Templates.Helpers;
+using Xamarin.Forms;
 
 namespace Templates.Controls.Carousel
 {
@@ -20,7 +21,7 @@ namespace Templates.Controls.Carousel
             {
                 Dots[i] = new DotImage
                 {
-                    Source = "emptyDot.png",
+                    Source = ConstantsHelper.EmptyDotImage,
                     HeightRequest = dotSize * 1.2,
                     WidthRequest = dotSize,
                     Index = i,
@@ -30,7 +31,7 @@ namespace Templates.Controls.Carousel
             }
             if (Dots.Length > 0)
             {
-                Dots[0].Source = "filledDot.png";
+                Dots[0].Source = ConstantsHelper.FilledDotImage;
             }
         }
 

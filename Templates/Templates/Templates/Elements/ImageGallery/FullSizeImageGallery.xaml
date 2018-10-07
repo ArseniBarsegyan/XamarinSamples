@@ -16,7 +16,7 @@
                                    AbsoluteLayout.LayoutFlags="All" 
                                    Source="{Binding Source}" 
                                    Aspect="AspectFit"
-                                   HeightRequest="250" />
+                                   HeightRequest="300" />
                         </AbsoluteLayout>
                     </DataTemplate>
                 </imageGallery:GalleryView.ItemTemplate>

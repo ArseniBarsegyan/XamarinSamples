@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Templates.Helpers;
+using Xamarin.Forms;
 
 namespace Templates.Controls
 {
@@ -8,7 +9,7 @@ namespace Templates.Controls
     public class CustomPickerWithIcon : Picker
     {
         public static readonly BindableProperty ImageProperty = BindableProperty.Create(nameof(Image), 
-            typeof(string), typeof(CustomPickerWithIcon), "arrow_forward.png");
+            typeof(string), typeof(CustomPickerWithIcon), ConstantsHelper.ArrowForwardIcon);
         public static BindableProperty PlaceholderColorProperty = BindableProperty.Create(nameof(PlaceholderColor), 
             typeof(Color), typeof(CustomPickerWithIcon), Color.DodgerBlue, BindingMode.TwoWay);
         public static readonly BindableProperty BorderColorProperty = BindableProperty.Create(nameof(BorderColor), 

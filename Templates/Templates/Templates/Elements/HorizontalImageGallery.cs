@@ -31,12 +31,14 @@ namespace Templates.Elements
         }
 
         /// <summary>
-        /// Call this method in custom renderer
+        /// Call this method in custom renderer in Android and iOS projects.
         /// </summary>
         public void Render()
         {
             if (ItemTemplate == null || ItemsSource == null)
+            {
                 return;
+            }
 
             var layout = new StackLayout
             {
@@ -47,9 +49,11 @@ namespace Templates.Elements
 
             foreach (var item in ItemsSource)
             {
-                var viewCell = ItemTemplate.CreateContent() as ViewCell;
-                viewCell.View.BindingContext = item;
-                layout.Children.Add(viewCell.View);
+                if (ItemTemplate.CreateContent() is ViewCell viewCell)
+                {
+                    viewCell.View.BindingContext = item;
+                    layout.Children.Add(viewCell.View);
+                }
             }
 
             Content = layout;

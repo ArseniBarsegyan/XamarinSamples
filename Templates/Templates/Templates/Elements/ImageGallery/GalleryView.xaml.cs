@@ -105,11 +105,16 @@ namespace Templates.Elements.ImageGallery
         // Returns index of passed image in ItemsSource collection.
         // Comparing by image.Source property since its relatively unique value.
         // If nothing find return 0;
+        // TODO: comparing and cast images may change since it can has another type of source
         private int GetIndexOfImage(Image image)
         {
+            UriImageSource fileImageSource = (UriImageSource)image.Source;
+            string imagePath = fileImageSource.Uri.AbsolutePath;
+
             for (int i = 0; i < ItemsSource.Count(); i++)
             {
-                if (image.Source == ItemsSource.ElementAt(i).Source)
+                string comparableImagePath = ((UriImageSource)ItemsSource.ElementAt(i).Source).Uri.AbsolutePath;
+                if (imagePath == comparableImagePath)
                 {
                     return i;
                 }

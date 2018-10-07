@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Rg.Plugins.Popup.Extensions;
 using Templates.Elements.ImageGallery;
 using Xamarin.Forms;
@@ -16,9 +17,15 @@ namespace Templates.Pages
 
         private async void HorizontalImageGallery_OnItemTapped(object sender, EventArgs e)
         {
-            var tappedImage = sender as Image;
-            ViewModel.SelectedImage = tappedImage;
-            await Navigation.PushPopupAsync(new FullSizeImageGallery(ViewModel.TestImages, ViewModel.SelectedImage));
+            if (sender is Image tappedImage)
+            {
+                var imgSource = (UriImageSource) tappedImage.Source;
+
+                ViewModel.SelectedImage = ViewModel.TestImages.FirstOrDefault(x => ((UriImageSource)x.Source).Uri.AbsolutePath == imgSource.Uri.AbsolutePath);
+                var images = ViewModel.TestImages;
+                var currentImage = ViewModel.SelectedImage;
+                await Navigation.PushPopupAsync(new FullSizeImageGallery(images, currentImage));
+            }
         }
     }
 }
