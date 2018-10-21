@@ -48,6 +48,9 @@ namespace Templates.Pages
                     case MenuPageIndex.SoundTestPage:
                         Navigation.PushAsync(new SoundTestingPage());
                         break;
+                    case MenuPageIndex.PinchToZoomPage:
+                        Navigation.PushAsync(new PinchToZoomDemoPage());
+                        break;
                     default:
                         break;
                 }

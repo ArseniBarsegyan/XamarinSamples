@@ -71,6 +71,13 @@ namespace Templates.Elements
                     IconSource = "",
                     TargetType = typeof(SoundTestingPage),
                     IsDisplayed = true
+                },
+                new MasterPageItem
+                {
+                    Title = "Pinch to zoom page",
+                    IconSource = "",
+                    TargetType = typeof(PinchToZoomDemoPage),
+                    IsDisplayed = true
                 }
             };
             return masterPageItems;
@@ -106,6 +113,7 @@ namespace Templates.Elements
         UploadPage,
         CameraTestPage,
         MicrophoneTestPage,
-        SoundTestPage
+        SoundTestPage,
+        PinchToZoomPage
     }
 }

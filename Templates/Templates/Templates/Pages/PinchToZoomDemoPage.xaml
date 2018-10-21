@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:elements="clr-namespace:Templates.Elements;assembly=Templates"
+             x:Class="Templates.Pages.PinchToZoomDemoPage"
+             Title="Pinch to zoom demo page">
+    <ContentPage.Content>
+        <StackLayout>
+            <elements:PinchToZoomContainer HeightRequest="500">
+                <Image Source="https://www.w3schools.com/w3css/img_lights.jpg"
+                       HeightRequest="500"/>
+            </elements:PinchToZoomContainer>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
