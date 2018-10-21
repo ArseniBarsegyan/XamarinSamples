@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:elements="clr-namespace:Templates.Elements"
+             x:Class="Templates.Pages.ZoomImageDemoPage"
+             Title="Zoom image demo page">
+    <ContentPage.Content>
+        <StackLayout>
+            <elements:ZoomImage Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7k1E2oei8UsElkzK5rs6gt2mHuAB9DHO0vVXRyX0bXYac5Q2Z"
+                                HeightRequest="500" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

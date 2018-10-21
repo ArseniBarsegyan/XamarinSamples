@@ -5,7 +5,7 @@ using Templates.HardwareTest.Microphone;
 using Templates.HardwareTest.Sound;
 using Templates.Pages;
 
-namespace Templates.Elements
+namespace Templates.Helpers
 {
     /// <summary>
     /// Helper class. Provide list of items for MenuPage.
@@ -78,6 +78,13 @@ namespace Templates.Elements
                     IconSource = "",
                     TargetType = typeof(PinchToZoomDemoPage),
                     IsDisplayed = true
+                },
+                new MasterPageItem
+                {
+                    Title = "Zoom image demo page",
+                    IconSource = "",
+                    TargetType = typeof(ZoomImageDemoPage),
+                    IsDisplayed = true
                 }
             };
             return masterPageItems;
@@ -114,6 +121,7 @@ namespace Templates.Elements
         CameraTestPage,
         MicrophoneTestPage,
         SoundTestPage,
-        PinchToZoomPage
+        PinchToZoomPage,
+        ZoomImageDemoPage
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using Templates.Elements;
 using Templates.HardwareTest.Camera;
 using Templates.HardwareTest.Microphone;
 using Templates.HardwareTest.Sound;
+using Templates.Helpers;
 using Templates.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -50,6 +50,9 @@ namespace Templates.Pages
                         break;
                     case MenuPageIndex.PinchToZoomPage:
                         Navigation.PushAsync(new PinchToZoomDemoPage());
+                        break;
+                    case MenuPageIndex.ZoomImageDemoPage:
+                        Navigation.PushAsync(new ZoomImageDemoPage());
                         break;
                     default:
                         break;

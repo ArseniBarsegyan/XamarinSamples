@@ -4,9 +4,9 @@ using Xamarin.Forms.Xaml;
 namespace Templates.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PinchToZoomDemoPage : ContentPage
+    public partial class ZoomImageDemoPage : ContentPage
     {
-        public PinchToZoomDemoPage()
+        public ZoomImageDemoPage()
         {
             InitializeComponent();
         }
